@@ -12,5 +12,9 @@ public class sign_up extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
     }
+    public void gotologin(View view) {
+        startActivity(new Intent(getApplicationContext(),login.class));
+    }
+
 
 }

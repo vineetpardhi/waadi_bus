@@ -12,7 +12,5 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
     }
-    public void gotoSignup(View view) {
-        startActivity(new Intent(getApplicationContext(),sign_up.class));
-    }
+
 }

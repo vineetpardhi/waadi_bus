@@ -127,26 +127,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/signup"
+        android:onClick="gotologin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.205" />
-
-    <EditText
-        android:id="@+id/editText8"
-        android:layout_width="383dp"
-        android:layout_height="164dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="0.0dp"
-        android:background="@drawable/background1"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button8"
@@ -180,23 +167,42 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.63" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="309dp"
-        android:layout_height="27dp"
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginBottom="292dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/email"
+        android:ems="10"
+        android:gravity="center"
+
+        android:hint="email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="426dp"
+        android:layout_height="183dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="0.0dp"
 
-        android:layout_marginTop="8dp"
-        android:background="@drawable/email"
-        android:gravity="center"
-        android:hint="email"
+        android:background="@drawable/background1"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.153"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.0" />
+
 
 </android.support.constraint.ConstraintLayout>
