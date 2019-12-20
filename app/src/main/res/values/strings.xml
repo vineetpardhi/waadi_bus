@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">login ui</string>
+    <string name="phone_verification">phone verification</string>
+    <string name="email">email</string>
 </resources>

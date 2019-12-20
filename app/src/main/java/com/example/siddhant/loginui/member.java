@@ -2,7 +2,7 @@ package com.example.siddhant.loginui;
 
 class member {
     private String username;
-    private Integer email;
+    private String email;
     private String password;
     private String cpassword;
     private String verification;
@@ -15,11 +15,11 @@ class member {
         this.username = username;
     }
 
-    public Integer getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(Integer email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 

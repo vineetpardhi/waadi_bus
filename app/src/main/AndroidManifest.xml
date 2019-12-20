@@ -9,18 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login"></activity>
-
-        <activity android:name=".MainActivity"/>
-            <activity android:name=".sign_up">
+        <activity android:name=".otp_activity"></activity>
+        <activity android:name=".rikshaw4" />
+        <activity android:name=".rikshaw3" />
+        <activity android:name=".rikshaw2" />
+        <activity android:name=".rikshaw1" />
+        <activity android:name=".login" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".sign_up" />
+        <activity android:name=".home_page">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>

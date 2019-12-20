@@ -1,9 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".rikshaw1">
+    android:layout_height="512dp"
+    tools:context="com.example.siddhant.loginui.MainActivity"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="8dp">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/logo"
+            app:srcCompat="@drawable/logo" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/logo1"
+            app:srcCompat="@drawable/logo1" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="left"
+                android:onClick="registerRickshaw2"
+                android:background="@drawable/logo3" />
+
+        </FrameLayout>
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:background="@drawable/source1"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="source"
+            android:inputType="textPersonName" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="66dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center"
+
+
+            android:background="@drawable/logo5"
+
+            app:srcCompat="@drawable/logo5" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:background="@drawable/destination"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Destination"
+            android:inputType="textPersonName" />
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="137dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+
+            android:background="@drawable/search" />
+
+
+    </LinearLayout>
+</ScrollView>

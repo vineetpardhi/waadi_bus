@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "412045011476",
+    "firebase_url": "https://waadi-bdc68.firebaseio.com",
+    "project_id": "waadi-bdc68",
+    "storage_bucket": "waadi-bdc68.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412045011476:android:9cb8baef3a312f85881501",
+        "android_client_info": {
+          "package_name": "com.example.siddhant.loginui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "412045011476-t8jh2c5e4q2eljqi3je3qlq8qr6dovt8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.siddhant.loginui",
+            "certificate_hash": "7809587528b3117f2982a76c7f4850833d5d7d59"
+          }
+        },
+        {
+          "client_id": "412045011476-l26kfmc54haa0u8u9pu2slpu25vjtv5r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.siddhant.loginui",
+            "certificate_hash": "badc63c9d14fad12b718e2752be0a1ede0ae35b1"
+          }
+        },
+        {
+          "client_id": "412045011476-s4qu2b6gkdjor4dqma32jhasls9pf7a0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCj2HIkbvodG7M2aTkimq2vttfKqjizrfg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "412045011476-s4qu2b6gkdjor4dqma32jhasls9pf7a0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412045011476:android:3eac5cee7c161dde881501",
+        "android_client_info": {
+          "package_name": "com.example.waadi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "412045011476-dhkke4p07ifc541fhmqkqn65q8dv35gr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.waadi",
+            "certificate_hash": "7809587528b3117f2982a76c7f4850833d5d7d59"
+          }
+        },
+        {
+          "client_id": "412045011476-s4qu2b6gkdjor4dqma32jhasls9pf7a0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCj2HIkbvodG7M2aTkimq2vttfKqjizrfg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "412045011476-s4qu2b6gkdjor4dqma32jhasls9pf7a0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
