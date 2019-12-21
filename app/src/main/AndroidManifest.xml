@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".otp_activity"></activity>
         <activity android:name=".rikshaw4" />
         <activity android:name=".rikshaw3" />
         <activity android:name=".rikshaw2" />
