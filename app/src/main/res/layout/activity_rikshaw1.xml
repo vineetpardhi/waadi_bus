@@ -1,96 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="512dp"
-    tools:context="com.example.siddhant.loginui.MainActivity"
+    android:layout_height="match_parent"
+    tools:context="com.example.siddhant.loginui.rikshaw1"
     tools:layout_editor_absoluteX="8dp"
     tools:layout_editor_absoluteY="8dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <Button
+        android:id="@+id/go_bus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.648" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/logo"
-            app:srcCompat="@drawable/logo" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="77dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05"
+        app:srcCompat="@drawable/logo" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/logo1"
-            app:srcCompat="@drawable/logo1" />
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="113dp"
+        android:layout_height="88dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227"
+        app:srcCompat="@drawable/auto" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
+    <AutoCompleteTextView
+        android:id="@+id/src"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/source1"
 
+        android:ems="10"
+        android:hint="Source"
+        android:inputType="textPersonName"
+        android:paddingLeft="60dp"
+        android:paddingRight="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.421" />
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="left"
-                android:onClick="registerRickshaw2"
-                android:background="@drawable/logo3" />
+    <AutoCompleteTextView
+        android:id="@+id/des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/destination"
+        android:ems="10"
+        android:hint="Destination"
+        android:inputType="textPersonName"
+        android:paddingLeft="60dp"
+        android:paddingRight="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53" />
 
-        </FrameLayout>
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_gravity="center"
-            android:background="@drawable/source1"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="source"
-            android:inputType="textPersonName" />
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="66dp"
-            android:layout_height="52dp"
-            android:layout_gravity="center"
-
-
-            android:background="@drawable/logo5"
-
-            app:srcCompat="@drawable/logo5" />
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_gravity="center"
-            android:background="@drawable/destination"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Destination"
-            android:inputType="textPersonName" />
-
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="137dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-
-            android:background="@drawable/search" />
-
-
-    </LinearLayout>
-</ScrollView>
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="38dp"
+        android:layout_height="26dp"
+        android:onClick="gotoRickshaw2"
+        android:background="@drawable/toggle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.089" />
+</android.support.constraint.ConstraintLayout>

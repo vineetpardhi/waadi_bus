@@ -36,6 +36,7 @@
             />
 
         <FrameLayout
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="30dp"
@@ -179,28 +180,38 @@
             android:layout_marginLeft="30dp"
             android:layout_marginStart="30dp">
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
+                android:layout_gravity="right"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:text="Get OTP" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginStart="60dp">
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="16dp">
 
                 <EditText
                     android:id="@+id/verfication"
-                    android:layout_width="match_parent"
+                    android:layout_width="170dp"
                     android:layout_height="45dp"
-                    android:layout_gravity="center"
 
 
+                    android:layout_gravity="left"
                     android:layout_marginStart="0dp"
                     android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
-                    android:hint="Enter your phone number"
+                    android:hint="Phone Number"
                     android:inputType="phone"
                     android:paddingStart="0dp"
                     android:paddingLeft="0dp"
@@ -217,13 +228,11 @@
             android:layout_marginLeft="0dp">
 
             <Button
-                android:id="@+id/button13"
+                android:id="@+id/otpbutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:text="Get OTP" />
+                android:layout_gravity="center"
+                android:text="Button" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="88dp"
@@ -271,7 +280,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"
             android:background="@drawable/loginhere"
-            android:onClick="gotologin" />
+             />
 
 
     </LinearLayout>
