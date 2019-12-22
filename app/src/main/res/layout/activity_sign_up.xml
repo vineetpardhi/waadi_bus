@@ -105,37 +105,38 @@
         </FrameLayout>
 
         <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="351dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginStart="30dp">
+            android:layout_marginRight="30dp">
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
                 app:errorEnabled="true"
-                app:passwordToggleEnabled="true"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="60dp">
+                app:passwordToggleEnabled="true">
 
                 <EditText
                     android:id="@+id/password"
-                    android:layout_width="283dp"
+                    android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:autofillHints=""
                     android:hint="Password"
                     android:inputType="textPassword"
-                    android:paddingLeft="0dp"
-                    android:paddingRight="20dp"
-                    android:password="true"
                     android:paddingStart="0dp"
-                    android:autofillHints=""
-                    android:paddingEnd="20dp" />
+                    android:paddingLeft="0dp"
+                    android:paddingEnd="20dp"
+                    android:paddingRight="20dp"
+                    android:password="true" />
 
             </android.support.design.widget.TextInputLayout>
         </FrameLayout>
@@ -148,23 +149,23 @@
             android:layout_marginStart="30dp">
 
             <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="291dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
                 app:errorEnabled="true"
-                app:passwordToggleEnabled="true"
-                android:layout_marginStart="60dp"
-                android:layout_marginEnd="20dp">
+                app:passwordToggleEnabled="true">
 
                 <EditText
                     android:id="@+id/cpassword"
-                    android:layout_width="283dp"
+                    android:layout_width="268dp"
                     android:layout_height="45dp"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="0dp"
+                    android:layout_marginRight="10dp"
                     android:hint="Confirm Password"
                     android:inputType="textPassword"
                     android:paddingStart="0dp"
@@ -186,6 +187,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:text="Get OTP" />
 
@@ -232,7 +234,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Button" />
+                android:text="Verify Otp" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="88dp"
