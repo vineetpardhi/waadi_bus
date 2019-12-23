@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 public class login extends AppCompatActivity {
 
 
@@ -85,7 +86,6 @@ public class login extends AppCompatActivity {
                                 startActivity(i);
                                 finish();
                                 Toast.makeText(login.this, "Success Login", Toast.LENGTH_SHORT).show();
-
 
                             }
                             else {

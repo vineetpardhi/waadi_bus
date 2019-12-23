@@ -1,6 +1,8 @@
 package com.example.siddhant.loginui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,23 +17,23 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    SharedPreferences sharedPreferences;
     EditText username,password,cpassword,email,verification;
     Button button;
     member member;
+    TextView text;
     DatabaseReference reff;
+    String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent i= getIntent();
-        String name=i.getStringExtra("message");
-        TextView text;
-        text=findViewById(R.id.usr);
+        Intent i = getIntent();
+        name = i.getStringExtra("message");
 
-        text.setText(name);
-
+        text = findViewById(R.id.usr);
 
     }
-
 }

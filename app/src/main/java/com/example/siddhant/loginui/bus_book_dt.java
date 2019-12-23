@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -15,9 +16,12 @@ public class bus_book_dt extends AppCompatActivity {
 
     EditText mt1;
     EditText mt2;
-    Button btn,btn2;
+    Button btn,btn2,gtbtn;
     Calendar c;
     DatePickerDialog dp;
+
+    AutoCompleteTextView psrc,pdes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,9 +83,53 @@ public class bus_book_dt extends AppCompatActivity {
             }
         } );
 
+
+
+        gtbtn=findViewById(R.id.gt_confirm);
+
+        psrc=findViewById(R.id.psrc);
+        pdes=findViewById(R.id.pdes);
+
+
+        gtbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(psrc.getText().toString().isEmpty())
+                {
+                    psrc.setError("Please enter the source");
+                }
+                else if(pdes.getText().toString().isEmpty())
+                {
+                    pdes.setError("Please enter the destination");
+                }
+                else if(mt1.getText().toString().isEmpty())
+                {
+                    mt1.setError("Please enter starting date");
+                }
+                else if(mt2.getText().toString().isEmpty())
+                {
+                    mt2.setError("Please enter ending date");
+                }
+                else {
+
+
+                    Intent i= new Intent(bus_book_dt.this,confirm_book.class);
+
+
+                    //storing the data in array
+                    String[] dt_arr={psrc.getText().toString(),pdes.getText().toString(),mt1.getText().toString(),mt2.getText().toString()};
+
+                    //passing array to
+                    i.putExtra("dtarr",dt_arr);
+                    startActivity(i);
+
+                }
+
+            }
+        });
+
+
     }
 
-    public void on_confirm(View view) {
-        startActivity(new Intent(getApplicationContext(),confirm_book.class));
-    }
+
 }

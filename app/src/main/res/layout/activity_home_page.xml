@@ -39,7 +39,7 @@
             android:background="@drawable/toggle" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/confirm_bk"
             android:layout_width="70dp"
             android:layout_height="30dp"
             android:layout_gravity="right"

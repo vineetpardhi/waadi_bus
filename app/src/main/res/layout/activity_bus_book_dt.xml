@@ -65,8 +65,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switch1"
         app:layout_constraintVertical_bias="0.036">
-        <EditText
-            android:id="@+id/editText4"
+        <AutoCompleteTextView
+            android:id="@+id/psrc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="55dp"
@@ -76,8 +76,8 @@
             android:inputType="textPersonName" />
 
 
-        <EditText
-            android:id="@+id/editText5"
+        <AutoCompleteTextView
+            android:id="@+id/pdes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="55dp"
@@ -107,7 +107,7 @@
         android:id="@+id/datetime1"
         android:layout_width="134dp"
         android:layout_height="64dp"
-        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
         android:ems="10"
         android:inputType="datetime"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -161,13 +161,12 @@
         app:layout_constraintVertical_bias="0.421" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/gt_confirm"
         android:layout_width="148dp"
         android:layout_height="42dp"
         android:layout_marginTop="78dp"
         android:layout_marginBottom="36dp"
         android:background="@drawable/busroot"
-        android:onClick="on_confirm"
         android:text="Go to Confirm"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
