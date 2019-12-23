@@ -10,7 +10,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FirebaseMessagingService"></activity>
+        <activity android:name=".confirm_book"></activity>
+        <activity android:name=".bus_book_dt" />
+        <activity android:name=".hire_bus" />
+        <activity android:name=".agency_form" />
+        <activity android:name=".pvt_bus_home" />
+        <activity android:name=".bus_depo" />
+        <activity android:name=".bus_root" />
+        <activity android:name=".bus_list" />
+        <activity android:name=".bus_home" />
+        <activity android:name=".basic_bushome" />
+        <activity android:name=".agency_dashboard" />
+        <activity android:name=".FirebaseMessagingService" />
         <activity android:name=".rikshaw_list" />
         <activity android:name=".rikshaw4" />
         <activity android:name=".rikshaw3" />
@@ -26,12 +37,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service android:name=".FirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
     </application>
-
 
 </manifest>

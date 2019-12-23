@@ -25,4 +25,7 @@ public class home_page extends AppCompatActivity {
     public void registerRickshaw2(View view) {
         startActivity(new Intent(getApplicationContext(),rikshaw2.class));
     }
+    public void gotoBus(View view) {
+        startActivity(new Intent(getApplicationContext(),basic_bushome.class));
+    }
 }
