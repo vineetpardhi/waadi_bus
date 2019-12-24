@@ -202,6 +202,8 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
             ly.addView(ed);
             this.count=this.count+1;
             ed.setId(this.count);
+            ed.setLayoutParams();
+            ed.setHint("Place "+this.count);
     }
 
     public void onSave(View view) {
