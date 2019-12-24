@@ -10,7 +10,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".confirm_book"></activity>
+        <activity android:name=".rikshaowner"></activity>
+        <activity android:name=".startpage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".confirm_book" />
         <activity android:name=".bus_book_dt" />
         <activity android:name=".hire_bus" />
         <activity android:name=".agency_form" />
@@ -30,13 +38,7 @@
         <activity android:name=".login" />
         <activity android:name=".MainActivity" />
         <activity android:name=".sign_up" />
-        <activity android:name=".home_page">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".home_page"></activity>
 
         <service android:name=".FirebaseMessagingService">
             <intent-filter>

@@ -19,7 +19,7 @@ public class home_page extends AppCompatActivity {
 
 
     public void gotoRickshaw(View view) {
-        startActivity(new Intent(getApplicationContext(),rikshaw1.class));
+        startActivity(new Intent(getApplicationContext(),rikshaw3.class));
     }
 
     public void registerRickshaw2(View view) {

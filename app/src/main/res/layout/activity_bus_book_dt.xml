@@ -105,15 +105,22 @@
 
     <EditText
         android:id="@+id/datetime1"
-        android:layout_width="134dp"
-        android:layout_height="64dp"
-        android:layout_marginLeft="68dp"
+
+        android:layout_width="178dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
+
         android:ems="10"
         android:inputType="datetime"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dpbtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView3"
-        app:layout_constraintVertical_bias="0.149" />
+        app:layout_constraintVertical_bias="0.13" />
+
 
     <Button
         android:id="@+id/dpbtn2"
@@ -124,41 +131,40 @@
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toEndOf="@+id/datetime1"
         app:layout_constraintTop_toBottomOf="@+id/cardView3"
-        app:layout_constraintVertical_bias="0.528" />
+        app:layout_constraintVertical_bias="0.422" />
 
     <Button
         android:id="@+id/dpbtn"
         android:layout_width="98dp"
         android:layout_height="34dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
         android:background="@drawable/busroot"
         android:text="From When"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.441"
         app:layout_constraintStart_toEndOf="@+id/datetime1"
         app:layout_constraintTop_toBottomOf="@+id/cardView3"
-        app:layout_constraintVertical_bias="0.226" />
-
+        app:layout_constraintVertical_bias="0.178" />
 
     <EditText
         android:id="@+id/datetime2"
-        android:layout_width="129dp"
-        android:layout_height="71dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
+        android:layout_width="171dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
         android:ems="10"
         android:inputType="datetime"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/dpbtn2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView3"
-        app:layout_constraintVertical_bias="0.421" />
+        app:layout_constraintVertical_bias="0.375" />
 
     <Button
         android:id="@+id/gt_confirm"

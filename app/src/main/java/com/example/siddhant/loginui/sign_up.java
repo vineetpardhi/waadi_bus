@@ -38,6 +38,7 @@ public class sign_up extends AppCompatActivity {
     DatabaseReference reff;
     ProgressDialog pro;
     boolean bool=false;
+    DatabaseReference mref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +72,8 @@ public class sign_up extends AppCompatActivity {
 
         otp = (EditText) findViewById(R.id.otp);
         username = (EditText) findViewById(R.id.username);
+
+        
         password = (EditText) findViewById(R.id.password);
         cpassword = (EditText) findViewById(R.id.cpassword);
         email = (EditText) findViewById(R.id.email);
