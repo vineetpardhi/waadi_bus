@@ -5,27 +5,24 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthSettings;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.TimeUnit;
 
@@ -38,6 +35,8 @@ public class sign_up extends AppCompatActivity {
     DatabaseReference reff;
     ProgressDialog pro;
     boolean bool=false;
+    boolean noEntry=false;
+
     DatabaseReference mref;
 
     @Override
@@ -73,8 +72,9 @@ public class sign_up extends AppCompatActivity {
         otp = (EditText) findViewById(R.id.otp);
         username = (EditText) findViewById(R.id.username);
 
-        
-        password = (EditText) findViewById(R.id.password);
+        mref=FirebaseDatabase.getInstance().getReference("member");
+
+        password = (EditText) findViewById(R.id.Password);
         cpassword = (EditText) findViewById(R.id.cpassword);
         email = (EditText) findViewById(R.id.email);
         verfication = (EditText) findViewById(R.id.verfication);
@@ -103,7 +103,7 @@ public class sign_up extends AppCompatActivity {
                     cpassword.setError("Password do not match!");
                 }
                 else if(username.getText().toString().trim().length()<3){
-                        username.setError("Username should contain more than 3 character");
+                    username.setError("Username should contain more than 3 character");
                 }
                 else if((username.getText().toString().trim().contains("/"))){
                     username.setError("Username should not contain '/' character");
@@ -120,17 +120,40 @@ public class sign_up extends AppCompatActivity {
                     otp.setError("Please verify otp first");
                 }
                 else {
-                    pro.setMessage("Registering...");
-                    pro.show();
+                    mref.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                    member.setUsername(username.getText().toString().trim());
-                    member.setPassword(password.getText().toString().trim());
-                    member.setCpassword(cpassword.getText().toString().trim());
-                    member.setEmail(email.getText().toString().trim());
-                    member.setVerification(verfication.getText().toString().trim());
-                    reff.child(username.getText().toString().trim()).setValue(member);
-                    Toast.makeText(sign_up.this, "Successfully Signed in", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(getApplicationContext(), login.class));
+                            noEntry=false;
+                            if (dataSnapshot.child(username.getText().toString()).exists()) {
+                                noEntry=true;
+                                username.setError("Username already exists");
+                            }
+                            else
+                            {
+                                if(!noEntry){
+                                    pro.setMessage("Registering...");
+                                    pro.show();
+
+                                    member.setUsername(username.getText().toString().trim());
+                                    member.setPassword(password.getText().toString().trim());
+                                    member.setEmail(email.getText().toString().trim());
+                                    member.setVerification(verfication.getText().toString().trim());
+                                    reff.child(username.getText().toString().trim()).setValue(member);
+                                    Toast.makeText(sign_up.this, "Successfully Signed in", Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(getApplicationContext(), login.class));
+                                    finish();
+                                    pro.dismiss();
+                                }
+                            }
+
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
                 }
             }
         });
@@ -191,9 +214,6 @@ public class sign_up extends AppCompatActivity {
                 this,               // Activity (for callback binding)
                 mCallbacks);        // OnVerificationStateChangedCallbacks
     }
-
-
-
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
         @Override

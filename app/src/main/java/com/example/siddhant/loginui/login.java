@@ -42,7 +42,7 @@ public class login extends AppCompatActivity {
 
         loginbtn=findViewById(R.id.button3);
         myuser=findViewById(R.id.username);
-        mypassword=findViewById(R.id.password);
+        mypassword=findViewById(R.id.Password);
 
         //Firebase
         database= FirebaseDatabase.getInstance();
@@ -58,7 +58,7 @@ public class login extends AppCompatActivity {
     }
 
 
-    private void LogIn(final String username,final String password)
+    private void LogIn(final String Username,final String Password)
     {
 
 
@@ -66,23 +66,23 @@ public class login extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                if(username.isEmpty())
+                if(Username.isEmpty())
                 {
                     myuser.setError("please enter your username");
 
                 }
-                else if (password.isEmpty())
+                else if (Password.isEmpty())
                 {
                     Toast.makeText(login.this,"please enter password",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    if (dataSnapshot.child(username).exists()) {
-                        if (!username.isEmpty()) {
-                            User login = dataSnapshot.child(username).getValue(User.class);
+                    if (dataSnapshot.child(Username).exists()) {
+                        if (!Username.isEmpty()) {
+                            User login = dataSnapshot.child(Username).getValue(User.class);
 
-                            if (login.getPassword().equals(password)) {
+                            if (login.getPassword().equals(Password)) {
                                 Intent i=new Intent(getApplicationContext(), MainActivity.class);
-                                i.putExtra("message",username);
+                                i.putExtra("message",Username);
                                 startActivity(i);
                                 finish();
                                 Toast.makeText(login.this, "Success Login", Toast.LENGTH_SHORT).show();
@@ -96,6 +96,7 @@ public class login extends AppCompatActivity {
                             Toast.makeText(login.this, "username not registered", Toast.LENGTH_SHORT).show();
                         }
                     }
+
                 }
             }
 
