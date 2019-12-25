@@ -10,9 +10,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.database.Query;
-import com.example.siddhant.loginui.User;
-import com.example.siddhant.loginui.home_page;
 
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +17,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 public class login extends AppCompatActivity {
 
 
@@ -41,7 +37,7 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         loginbtn=findViewById(R.id.button3);
-        myuser=findViewById(R.id.username);
+        myuser=findViewById(R.id.askdjasd);
         mypassword=findViewById(R.id.Password);
 
         //Firebase

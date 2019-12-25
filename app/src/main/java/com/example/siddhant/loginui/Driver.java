@@ -10,6 +10,36 @@ public class Driver {
     private String rtoaddress;
     private String dateofregistration;
     private List<String> places;
+    private String username;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private String email;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    private String password;
+    private String working;
 
     public List<String> getplaces() {
         return places;
@@ -30,7 +60,6 @@ public class Driver {
         this.working = working;
     }
 
-    private String working;
 
     public String getRole() {
         return Role;

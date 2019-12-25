@@ -60,59 +60,281 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/text"
             app:srcCompat="@drawable/text" />
+        <FrameLayout
 
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="16dp">
 
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rect1"
-            android:ems="10"
-            android:gravity="left"
-            android:hint="Name"
-            android:inputType="textPersonName" />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                app:counterEnabled="true"
+                app:errorEnabled="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="20dp">
 
-        <EditText
-            android:id="@+id/address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingEnd="20dp"
+                    android:paddingRight="20dp" />
 
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rect1"
-            android:ems="10"
-            android:gravity="left"
-            android:hint="Address"
-            android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+        </FrameLayout>
 
-        <EditText
-            android:id="@+id/mobileno"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+        <FrameLayout
 
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rect1"
-            android:ems="10"
-            android:gravity="left"
-            android:hint="Mobile no"
-            android:inputType="textPersonName" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="16dp">
 
-        <EditText
-            android:id="@+id/working"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                app:counterEnabled="true"
+                app:errorEnabled="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="20dp">
 
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rect1"
-            android:ems="10"
-            android:gravity="left"
-            android:hint="Working Area"
-            android:inputType="textPersonName" />
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:hint="username"
+                    android:inputType="textPersonName"
+                    android:paddingStart="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingEnd="20dp"
+                    android:paddingRight="20dp" />
 
+            </android.support.design.widget.TextInputLayout>
+        </FrameLayout>
+
+
+        <FrameLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="16dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                app:counterEnabled="true"
+                app:errorEnabled="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="20dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:hint="name"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="20dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="20dp" />
+
+            </android.support.design.widget.TextInputLayout>
+        </FrameLayout>
+
+
+
+
+        <FrameLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="16dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                app:counterEnabled="true"
+                app:errorEnabled="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="20dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:hint="Address"
+                    android:inputType="textLongMessage|textMultiLine"
+                    android:paddingStart="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingEnd="20dp"
+                    android:paddingRight="20dp" />
+
+            </android.support.design.widget.TextInputLayout>
+        </FrameLayout>
+
+        <FrameLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="16dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                app:counterEnabled="true"
+                app:errorEnabled="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="20dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/mobileno"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:hint="Phone no"
+                    android:inputType="number"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="20dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="20dp" />
+
+            </android.support.design.widget.TextInputLayout>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="16dp">
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                app:counterEnabled="true"
+                app:errorEnabled="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="20dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/working"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Main working area" />
+            </android.support.design.widget.TextInputLayout>
+        </FrameLayout>
+
+        <FrameLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="16dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                app:counterEnabled="true"
+                app:errorEnabled="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="20dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:paddingStart="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingEnd="20dp"
+                    android:paddingRight="20dp" />
+
+            </android.support.design.widget.TextInputLayout>
+        </FrameLayout>
+
+        <FrameLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="16dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                app:counterEnabled="true"
+                app:errorEnabled="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="20dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/cpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:hint="Confirm password"
+                    android:inputType="textPassword"
+                    android:paddingStart="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingEnd="20dp"
+                    android:paddingRight="20dp" />
+
+            </android.support.design.widget.TextInputLayout>
+        </FrameLayout>
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -163,7 +385,6 @@
             android:layout_gravity="center"
             android:onClick="onSave"
             android:text="Save" />
-
         <Button
             android:id="@+id/button4"
             android:layout_width="140dp"
@@ -192,50 +413,134 @@
             android:background="@drawable/vehicle"
             app:srcCompat="@drawable/vehicle" />
 
-        <EditText
-            android:id="@+id/rtobranch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
 
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rect1"
-            android:ems="10"
-            android:gravity="left"
-            android:hint="RTO branch"
-            android:inputType="textPersonName" />
+        <FrameLayout
 
-        <EditText
-            android:id="@+id/rtoaddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="16dp">
 
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rect1"
-            android:ems="10"
-            android:gravity="left"
-            android:hint="RTO Address"
-            android:inputType="textPersonName" />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                app:counterEnabled="true"
+                app:errorEnabled="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="20dp">
 
-        <EditText
-            android:id="@+id/dateofregistration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/rtobranch"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:hint="RTO Branch"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="20dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="20dp" />
 
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rect1"
-            android:ems="10"
-            android:gravity="left"
-            android:hint="Date Of Registration"
-            android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+        </FrameLayout>
+
+
+
+
+        <FrameLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="16dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                app:counterEnabled="true"
+                app:errorEnabled="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="20dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/rtoaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:hint="Address"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="20dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="20dp" />
+
+            </android.support.design.widget.TextInputLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp">
+
+            <Button
+                android:id="@+id/dpbtn"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/date" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="16dp">
+
+                <EditText
+                    android:id="@+id/dateofregistration"
+                    android:layout_width="170dp"
+                    android:layout_height="45dp"
+
+
+                    android:layout_gravity="left"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="Date Of Registration"
+                    android:inputType="date"
+                    android:paddingStart="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingEnd="20dp"
+                    android:paddingRight="20dp" />
+
+            </android.support.design.widget.TextInputLayout>
+        </FrameLayout>
 
         <Button
             android:id="@+id/button5"
             android:layout_width="140dp"
             android:layout_height="40dp"
             android:layout_gravity="right"
+            android:layout_marginTop="16dp"
 
             android:background="@drawable/file1" />
 

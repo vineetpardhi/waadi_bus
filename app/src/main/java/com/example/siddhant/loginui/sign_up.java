@@ -70,13 +70,13 @@ public class sign_up extends AppCompatActivity {
         });
 
         otp = (EditText) findViewById(R.id.otp);
-        username = (EditText) findViewById(R.id.username);
+        username = (EditText) findViewById(R.id.askdjasd);
 
         mref=FirebaseDatabase.getInstance().getReference("member");
 
         password = (EditText) findViewById(R.id.Password);
         cpassword = (EditText) findViewById(R.id.cpassword);
-        email = (EditText) findViewById(R.id.email);
+        email = (EditText) findViewById(R.id.askdjasd);
         verfication = (EditText) findViewById(R.id.verfication);
         button = (Button) findViewById(R.id.button);
         pro = new ProgressDialog(this);
