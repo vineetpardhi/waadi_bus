@@ -28,4 +28,8 @@ public class home_page extends AppCompatActivity {
     public void gotoBus(View view) {
         startActivity(new Intent(getApplicationContext(),basic_bushome.class));
     }
+
+    public void gotoTrail(View view) {
+        startActivity(new Intent(getApplicationContext(),trail.class));
+    }
 }

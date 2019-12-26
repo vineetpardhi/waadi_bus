@@ -70,13 +70,11 @@ public class sign_up extends AppCompatActivity {
         });
 
         otp = (EditText) findViewById(R.id.otp);
-        username = (EditText) findViewById(R.id.askdjasd);
-
+        username = (EditText) findViewById(R.id.email);
         mref=FirebaseDatabase.getInstance().getReference("member");
-
         password = (EditText) findViewById(R.id.Password);
         cpassword = (EditText) findViewById(R.id.cpassword);
-        email = (EditText) findViewById(R.id.askdjasd);
+        email = (EditText) findViewById(R.id.email);
         verfication = (EditText) findViewById(R.id.verfication);
         button = (Button) findViewById(R.id.button);
         pro = new ProgressDialog(this);
@@ -92,7 +90,7 @@ public class sign_up extends AppCompatActivity {
                     username.setError("username field can't be empty!");
                 }
                 else if (username.getText().toString().trim().length() > 15)
-                    username.setError("username cannot be greater than 15!");
+                    username.setError("username cannot be greater than 15! "+username.getText().toString());
                 else if (password.getText().toString().isEmpty()) {
                     password.setError("Password field cannot be empty");
                 }
@@ -125,7 +123,7 @@ public class sign_up extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                             noEntry=false;
-                            if (dataSnapshot.child(username.getText().toString()).exists()) {
+                            if(dataSnapshot.child(username.getText().toString()).exists()) {
                                 noEntry=true;
                                 username.setError("Username already exists");
                             }
@@ -146,7 +144,6 @@ public class sign_up extends AppCompatActivity {
                                     pro.dismiss();
                                 }
                             }
-
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {

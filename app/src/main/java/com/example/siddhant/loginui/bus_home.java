@@ -24,10 +24,6 @@ public class bus_home extends AppCompatActivity {
     AutoCompleteTextView t2;
     Button sbtn;
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

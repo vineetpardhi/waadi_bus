@@ -92,13 +92,14 @@ public class rikshaw1 extends AppCompatActivity {
                     Toast.makeText(rikshaw1.this,"source and Destination cannot be same",Toast.LENGTH_SHORT).show();
                 }
                 else{
+
                         Intent i = new Intent(getApplicationContext(), rikshaw_list.class);
+                        i.putExtra("src",t1.getText().toString());
+                        i.putExtra("dest",t2.getText().toString());
                         startActivity(i);
                 }
             }
         });
     }
-    public void gotoRickshaw2(View view) {
-        startActivity(new Intent(getApplicationContext(),rikshaw2.class));
-    }
+
 }

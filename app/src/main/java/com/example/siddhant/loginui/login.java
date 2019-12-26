@@ -37,7 +37,7 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         loginbtn=findViewById(R.id.button3);
-        myuser=findViewById(R.id.askdjasd);
+        myuser=findViewById(R.id.email);
         mypassword=findViewById(R.id.Password);
 
         //Firebase

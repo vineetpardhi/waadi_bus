@@ -125,7 +125,7 @@ tools:context="com.example.siddhant.loginui.login">
         app:layout_constraintVertical_bias="0.875">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/askdjasd"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username" />

@@ -412,7 +412,40 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/vehicle"
             app:srcCompat="@drawable/vehicle" />
+        <FrameLayout
 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="16dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                app:counterEnabled="true"
+                app:errorEnabled="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="20dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/rno"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:hint="Rickshaw no."
+                    android:inputType="textPassword"
+                    android:paddingStart="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingEnd="20dp"
+                    android:paddingRight="20dp" />
+
+            </android.support.design.widget.TextInputLayout>
+        </FrameLayout>
 
         <FrameLayout
 

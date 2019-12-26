@@ -27,7 +27,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -43,7 +45,7 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
     Calendar c;
     DatePickerDialog dp;
 
-    EditText name, address, mobileno, rtobranch, rtoaddress, dateofregistration,working,username,password,cpassword,email;
+    EditText name, address, mobileno, rtobranch, rno,rtoaddress, dateofregistration,working,username,password,cpassword,email;
     Button button,addInput,btn;
     Driver drive;
     DatabaseReference reff;
@@ -73,6 +75,7 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
         password=(EditText)findViewById(R.id.password);
         cpassword=(EditText)findViewById(R.id.cpassword);
         email=(EditText)findViewById(R.id.email);
+        rno=(EditText)findViewById(R.id.rno);
 
         working= (EditText) findViewById(R.id.working);
 
@@ -147,7 +150,9 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
                 else{
                     pro.setMessage("Registering...");
                     pro.show();
+                    drive.setRickshawno(rno.getText().toString().trim());
                     drive.setUsername(username.getText().toString().trim());
+                    drive.setRole("Driver");
                     drive.setPassword(password.getText().toString());
                     drive.setEmail(email.getText().toString().trim());
                     drive.setWorking(working.getText().toString());
@@ -157,9 +162,17 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
                     drive.setRtobranch(rtobranch.getText().toString().trim());
                     drive.setRtoaddress(rtoaddress.getText().toString().trim());
                     drive.setDateofregistration(dateofregistration.getText().toString().trim());
-                    drive.setplaces(strings);
+                    String listString = "";
+                    if(strings.size()!=0){
+                        for (String s : strings)
+                        {
+                            listString += s + ", ";
+                        }
+                    }
+                    //String str = String.join(",", strings);
+                    drive.setplaces(listString);
 
-                    reff.child(name.getText().toString().trim()).setValue(drive);
+                    reff.child(username.getText().toString().trim()).setValue(drive);
                     Toast.makeText(rikshaw2.this, "Successfully Signed in", Toast.LENGTH_LONG).show();
 
                 }
@@ -220,21 +233,6 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==PICK_IMAGE_REQUEST && resultCode==RESULT_OK && data !=null && data.getData() !=null){
-            filePath = data.getData();
-
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),filePath);
-                image.setImageBitmap(bitmap);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
-    }
 
     @Override
     public void onClick(View view) {
