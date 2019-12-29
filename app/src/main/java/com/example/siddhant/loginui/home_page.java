@@ -38,6 +38,6 @@ public class home_page extends AppCompatActivity {
     }
 
     public void gotomap(View view) {
-        startActivity(new Intent(getApplicationContext(),MapsActivity.class));
+        startActivity(new Intent(getApplicationContext(),MapsActivity2.class));
     }
 }

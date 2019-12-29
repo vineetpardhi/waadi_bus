@@ -1,5 +1,8 @@
 package com.example.siddhant.loginui;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,6 +43,7 @@ public class rikshaw1 extends AppCompatActivity {
 
         final ArrayAdapter<String> adapter1= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
 
+        //Toast.makeText(getApplicationContext(),String.valueOf(isNetworkAvailable()),Toast.LENGTH_SHORT).show();
         db=FirebaseDatabase.getInstance().getReference();
         db.keepSynced(true);
         db.child("Sheet1").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -101,5 +105,6 @@ public class rikshaw1 extends AppCompatActivity {
             }
         });
     }
+
 
 }
