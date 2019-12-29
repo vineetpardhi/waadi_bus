@@ -1,14 +1,14 @@
 package com.example.siddhant.loginui;
 
 import android.graphics.Color;
-import android.graphics.ColorSpace;
+
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     private newdriver[] mDataset;

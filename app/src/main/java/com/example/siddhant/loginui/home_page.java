@@ -5,13 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class home_page extends AppCompatActivity {
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+public class home_page extends AppCompatActivity {
+    DatabaseReference reff;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-
+        reff = FirebaseDatabase.getInstance().getReference();
+        reff.keepSynced(true);
     }
     public void gotoLogin(View view) {
         startActivity(new Intent(getApplicationContext(),login.class));
@@ -30,6 +34,10 @@ public class home_page extends AppCompatActivity {
     }
 
     public void gotoTrail(View view) {
-        startActivity(new Intent(getApplicationContext(),trail.class));
+        startActivity(new Intent(getApplicationContext(),rikshaw4.class));
+    }
+
+    public void gotomap(View view) {
+        startActivity(new Intent(getApplicationContext(),MapsActivity.class));
     }
 }
