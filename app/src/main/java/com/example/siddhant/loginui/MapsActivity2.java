@@ -5,13 +5,18 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.Uri;
+import android.provider.SyncStateContract;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.internal.Constants;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -40,26 +45,51 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
     private FusedLocationProviderClient client;
     DatabaseReference reff;
     static List<newdriver> driversLoc=new ArrayList<newdriver>();
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps2);
+        final Bundle b = getIntent().getExtras();
+
+        final String src = (b.getString("src")).toLowerCase().trim();
+        final String dest = (b.getString("dest")).toLowerCase().trim();
+        btn=findViewById(R.id.button17);
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-        client= LocationServices.getFusedLocationProviderClient(this);
-        client.getLastLocation().addOnSuccessListener(MapsActivity2.this, new OnSuccessListener<Location>() {
+                    .findFragmentById(R.id.map);
+            mapFragment.getMapAsync(this);
 
-            @Override
-            public void onSuccess(Location location) {
-                if(location!=null)
-                {
-                    getNearby(location.getLatitude(),location.getLongitude());
+            client = LocationServices.getFusedLocationProviderClient(this);
+            client.getLastLocation().addOnSuccessListener(MapsActivity2.this, new OnSuccessListener<Location>() {
+
+                @Override
+                public void onSuccess(Location location) {
+                    if (location != null) {
+                        getNearby(location.getLatitude(), location.getLongitude());
+                    }
                 }
-            }
-        });
+            });
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    reff=FirebaseDatabase.getInstance().getReference().child("member").child("Hznz");
+                    reff.child("source").setValue(src);
+                    reff.child("destination").setValue(dest);
+                    client.getLastLocation().addOnSuccessListener(MapsActivity2.this, new OnSuccessListener<Location>() {
 
+                        @Override
+                        public void onSuccess(Location location) {
+                            if(location != null) {
+                              reff.child("latitude").setValue(location.getLatitude());
+                              reff.child("longitude").setValue(location.getLongitude());
+                            }
+                        }
+                    });
+
+                }
+            });
     }
 
     public void getNearby(final Double lat, final Double longi)
@@ -73,8 +103,8 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
                     for (DataSnapshot listsnapshot : dataSnapshot.getChildren()) {
                         String cust = listsnapshot.child("role").getValue(String.class);
                         if(!cust.isEmpty() && cust.equals("Driver")) {
-                            Map<String,Double> loc=(HashMap<String,Double>)listsnapshot.child("location").getValue();
-                            if(!loc.toString().contains("Not available")) {
+                            if(!listsnapshot.toString().contains("Not available")) {
+                                Map<String,Double> loc=(HashMap<String,Double>)listsnapshot.child("location").getValue();
                                 Double newlat = loc.get("latitude");
                                 if ((lat + 0.01) >= newlat && (lat - 0.01) <= newlat) {
                                     if ((longi + 0.01) >= loc.get("longitude") && (longi - 0.01) <= loc.get("longitude")) {
@@ -144,7 +174,7 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
                             // for ActivityCompat#requestPermissions for more details.
                             return;
                         }
-                        Toast.makeText(getApplicationContext(), "sds", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(), "sds", Toast.LENGTH_SHORT).show();
 
                         startActivity(intent);
                     }

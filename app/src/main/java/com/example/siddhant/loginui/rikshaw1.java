@@ -96,15 +96,34 @@ public class rikshaw1 extends AppCompatActivity {
                     Toast.makeText(rikshaw1.this,"source and Destination cannot be same",Toast.LENGTH_SHORT).show();
                 }
                 else{
-
+                    if(!isNetworkAvailable()) {
                         Intent i = new Intent(getApplicationContext(), rikshaw_list.class);
-                        i.putExtra("src",t1.getText().toString());
-                        i.putExtra("dest",t2.getText().toString());
+                        i.putExtra("src", t1.getText().toString());
+                        i.putExtra("dest", t2.getText().toString());
                         startActivity(i);
+                    }
+                    else
+                    {
+                        Intent i = new Intent(getApplicationContext(), MapsActivity2.class);
+                        i.putExtra("src", t1.getText().toString());
+                        i.putExtra("dest", t2.getText().toString());
+                        startActivity(i);
+
+                    }
                 }
             }
         });
     }
-
+    private boolean isNetworkAvailable() {
+        ConnectivityManager manager =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+        boolean isAvailable = false;
+        if (networkInfo != null && networkInfo.isConnected()) {
+            // Network is present and connected
+            isAvailable = true;
+        }
+        return isAvailable;
+    }
 
 }

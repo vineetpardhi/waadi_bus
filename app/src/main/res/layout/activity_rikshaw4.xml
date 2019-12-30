@@ -22,44 +22,30 @@
         app:layout_constraintVertical_bias="0.043"
         app:srcCompat="@drawable/rik" />
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/lists"
+        android:layout_width="415dp"
+        android:layout_height="357dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Switch
         android:id="@+id/switch2"
-        android:layout_width="263dp"
-        android:layout_height="77dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="93dp"
+        android:layout_width="267dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="86dp"
         android:layout_marginEnd="84dp"
         android:layout_marginRight="84dp"
-        android:layout_marginBottom="368dp"
-        android:text="Location"
-        android:textOff="Show location"
-        android:textOn="Do not show location"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="65dp"
+        android:text="Switch"
+        app:layout_constraintBottom_toTopOf="@+id/lists"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/location"
-        android:layout_width="129dp"
-        android:layout_height="108dp"
-        android:layout_marginStart="183dp"
-        android:layout_marginLeft="183dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="170dp"
-        android:layout_marginRight="170dp"
-        android:layout_marginBottom="355dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.422"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
 
 </android.support.constraint.ConstraintLayout>

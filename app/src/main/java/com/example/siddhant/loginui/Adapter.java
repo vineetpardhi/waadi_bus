@@ -31,7 +31,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         public MyViewHolder(View v, final OnItemClickListner listner) {
             super(v);
             rno = (TextView) v.findViewById(R.id.rno);
-            phone = (TextView)v.findViewById(R.id.phone);
+            phone = (TextView)v.findViewById(R.id.dest);
             title=(TextView) v.findViewById(R.id.title);
             callbtn=(Button) v.findViewById(R.id.button16);
 

@@ -35,15 +35,6 @@ public class bus_home extends AppCompatActivity {
         t1=findViewById(R.id.src);
         t2=findViewById(R.id.des);
 
-
-
-
-
-
-
-
-
-
         final ArrayAdapter<String> adapter1= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
 
 
