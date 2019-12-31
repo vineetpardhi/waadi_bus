@@ -9,19 +9,8 @@ public class Driver {
     private String rtobranch;
     private String rtoaddress;
     private String dateofregistration;
-    private String places;
+    private List<String> places;
     private String username;
-    private String Role;
-
-    public String getRickshawno() {
-        return rickshawno;
-    }
-
-    public void setRickshawno(String rickshawno) {
-        this.rickshawno = rickshawno;
-    }
-
-    private String rickshawno;
 
     public String getEmail() {
         return email;
@@ -52,14 +41,14 @@ public class Driver {
     private String password;
     private String working;
 
-    public String getplaces() {
+    public List<String> getplaces() {
         return places;
     }
 
-    public void setplaces(String arr) {
+    public void setplaces(List<String> arr) {
         this.places = arr;
     }
-
+    private String Role;
 
 
 

@@ -6,17 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".bus_depo">
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="372dp"
-        android:layout_height="62dp"
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/deposearch"
+        android:layout_width="360dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="0dp"
         android:background="@drawable/searchbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.686"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.059">
+
+    </android.support.v7.widget.SearchView>
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -31,4 +35,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
     </android.support.v7.widget.Toolbar>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="411dp"
+        android:layout_height="460dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deposearch"
+        app:layout_constraintVertical_bias="0.482">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/busdepolist"
+            android:layout_width="450dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="20dp" />
+    </FrameLayout>
+
 </android.support.constraint.ConstraintLayout>

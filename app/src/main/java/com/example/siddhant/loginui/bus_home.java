@@ -17,12 +17,18 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class bus_home extends AppCompatActivity {
+
     FirebaseDatabase mref;
     DatabaseReference db;
+
 
     AutoCompleteTextView t1;
     AutoCompleteTextView t2;
     Button sbtn;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,16 @@ public class bus_home extends AppCompatActivity {
         t1=findViewById(R.id.src);
         t2=findViewById(R.id.des);
 
+
+
+
+
+
+
+
+
+
+
         final ArrayAdapter<String> adapter1= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
 
 
@@ -45,9 +61,11 @@ public class bus_home extends AppCompatActivity {
 
 
 
+
+
         db=FirebaseDatabase.getInstance().getReference();
 
-        db.child("depot").addListenerForSingleValueEvent(new ValueEventListener() {
+        db.child("Buses").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -55,8 +73,13 @@ public class bus_home extends AppCompatActivity {
                 //getting each data from database
                 for (DataSnapshot suggestionSnapshot:dataSnapshot.getChildren())
                 {
-                    String suggestion=suggestionSnapshot.child("depo_name").getValue(String.class);
+                    String suggestion=suggestionSnapshot.getKey();
                     adapter1.add(suggestion);
+                    for(DataSnapshot list:suggestionSnapshot.getChildren())
+                    {
+                        String sugg=list.getKey();
+                        adapter1.add(sugg);
+                    }
                 }
             }
 
@@ -120,4 +143,8 @@ public class bus_home extends AppCompatActivity {
     public void on_depo(View view) {
         startActivity(new Intent(getApplicationContext(),bus_depo.class));
     }
+
+
+
 }
+

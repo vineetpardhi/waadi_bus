@@ -18,6 +18,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.EventListener;
+import java.util.HashMap;
+import java.util.Map;
 
 public class agency_form extends AppCompatActivity {
 
@@ -26,10 +28,14 @@ public class agency_form extends AppCompatActivity {
 
     Button abtn;
 
-    String s;
+
+    SaveSharedPreference session;
+
     FirebaseDatabase mref;
     DatabaseReference db;
 
+
+    String[] vh= new String[9];
     CheckBox f1,f2,f3;
 
     @Override
@@ -52,15 +58,18 @@ public class agency_form extends AppCompatActivity {
         abtn=findViewById(R.id.rbtn);
 
 
+        session=new SaveSharedPreference(getApplicationContext());
+
+
 
         //register as an agency
 
 
         abtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
 
-
+                //validation for the form
                 if(aname.getText().toString().isEmpty())
                 {
                     aname.setError("Please enter your agency name");
@@ -79,6 +88,45 @@ public class agency_form extends AppCompatActivity {
                 }
                 else {
 
+                    //checking the value for vehicles
+                    if(f1.isChecked())
+                    {
+                        vh[0]="Tempo";
+                    }
+                    else if(f3.isChecked())
+                    {
+                        vh[0]="Bus";
+                    }
+                    else if(f3.isChecked())
+                    {
+                        vh[0]="Car";
+                    }
+                    else if(f1.isChecked() && f2.isChecked())
+                    {
+                        vh[0]="Tempo";
+                        vh[1]="Bus";
+                    }
+                    else if(f1.isChecked() && f3.isChecked())
+                    {
+                        vh[0]="Tempo";
+                        vh[1]="Car";
+                    }
+                    else if(f2.isChecked() && f3.isChecked())
+                    {
+                        vh[0]="Bus";
+                        vh[1]="Car";
+                    }
+                    else if(f1.isChecked() && f3.isChecked() && f2.isChecked())
+                    {
+                        vh[0]="Tempo";
+                        vh[1]="Bus";
+                        vh[2]="Car";
+                    }
+
+
+
+
+
 
                     mref=FirebaseDatabase.getInstance();
                     db=mref.getReference("member");
@@ -88,10 +136,36 @@ public class agency_form extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
-                            // verify that the user is logged in
-                            Toast.makeText(agency_form.this,"registered successfully",Toast.LENGTH_SHORT).show();
+                            HashMap<String,String> user=session.getUserDetails();
 
-                            startActivity(new Intent(agency_form.this,MainActivity.class));
+                            String usrn=user.get(SaveSharedPreference.KEY_NAME);
+
+
+                            if(dataSnapshot.child(usrn).exists())
+                            {
+
+
+
+                                agency_details obj=new agency_details();
+                                obj.setAgency_name(aname.getText().toString());
+                                obj.setAgency_address(aaddr.getText().toString());
+                                obj.setAgency_number(amob.getText().toString());
+                                obj.setVh(vh);
+
+                                db.child(usrn).child("agency").child(aname.getText().toString()).setValue(obj);
+
+                                startActivity(new Intent(getApplicationContext(),home_page.class));
+                                Toast.makeText(agency_form.this,"registered successfully",Toast.LENGTH_SHORT).show();
+
+
+
+                            }
+                            else {
+                                Toast.makeText(agency_form.this,"Sorry You cannot Register",Toast.LENGTH_SHORT).show();
+                            }
+
+
+                            // verify that the user is logged in
 
                             //add this data to users database
 

@@ -30,10 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent i = getIntent();
-        name = i.getStringExtra("message");
 
-        text = findViewById(R.id.usr);
 
     }
 

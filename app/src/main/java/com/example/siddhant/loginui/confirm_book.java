@@ -1,7 +1,10 @@
 package com.example.siddhant.loginui;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -15,12 +18,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Random;
+
 public class confirm_book extends AppCompatActivity {
 
 
     CheckBox ac,non_ac;
+    private Boolean flag;
 
 
+    SaveSharedPreference session;
     DatabaseReference db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +38,11 @@ public class confirm_book extends AppCompatActivity {
         final Bundle b=getIntent().getExtras();
 
         final String dt_arr[]=b.getStringArray("dtarr");
+
+
+        session= new SaveSharedPreference(getApplicationContext());
+
+
 
 
         ac=findViewById(R.id.ac_check);
@@ -42,11 +55,13 @@ public class confirm_book extends AppCompatActivity {
 
         Button cbtn=findViewById(R.id.confirm_bk);
 
+        final Random rnd=new Random();
+
         String bustype;
         cbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!ac.isChecked() || !non_ac.isChecked())
+                if(!(ac.isChecked() || non_ac.isChecked()))
                 {
                     Toast.makeText(confirm_book.this,"Pleae enter select one",Toast.LENGTH_SHORT).show();
                 }
@@ -75,7 +90,37 @@ public class confirm_book extends AppCompatActivity {
                                 bustype="NON AC";
 
                             }
-                            quotation q1=new quotation(dt_arr[0],dt_arr[1],dt_arr[2],dt_arr[3],bustype,Integer.parseInt(num_p.getText().toString()));
+
+
+
+                            HashMap<String,String> user=session.getUserDetails();
+
+                            String usrn=user.get(SaveSharedPreference.KEY_NAME);
+                            quotation qobj=new quotation();
+
+                            qobj.setSource(dt_arr[0]);
+                            qobj.setDestination(dt_arr[1]);
+                            qobj.setDt1(dt_arr[2]);
+                            qobj.setDt2(dt_arr[3]);
+                            qobj.setBustype(bustype);
+                            qobj.setNo_of_seates(Integer.parseInt(num_p.getText().toString()));
+                            qobj.setTrip(dt_arr[4]);
+
+
+
+
+
+
+
+                            db.child(usrn).child("trips").child(dt_arr[0].concat(dt_arr[1]).concat(String.valueOf(rnd.nextInt(1000)))).setValue(qobj);
+
+
+                            flag=true;
+
+                            Toast.makeText(confirm_book.this,"Booking Confirmed",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(),home_page.class));
+
+
 
                         }
 
@@ -93,5 +138,20 @@ public class confirm_book extends AppCompatActivity {
 
 
 
+
+
+
     }
+
+
+    @Override
+    public void onBackPressed() {
+
+        if(flag) {
+            Intent i = new Intent(getApplicationContext(), home_page.class);
+            startActivity(i);
+        }
+    }
+
+
 }
