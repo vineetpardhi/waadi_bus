@@ -23,6 +23,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".bus_trips"></activity>
+        <activity android:name=".stays" />
+        <activity android:name=".manager" />
+        <activity android:name=".user_dashboard" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -65,9 +69,13 @@
         <activity android:name=".hire_bus" />
         <activity android:name=".agency_form" />
         <activity android:name=".pvt_bus_home" />
-        <activity android:name=".bus_depo" />
+        <activity
+            android:name=".bus_depo"
+            android:windowSoftInputMode="adjustResize|adjustPan" />
         <activity android:name=".bus_root" />
-        <activity android:name=".bus_list" />
+        <activity
+            android:name=".bus_list"
+            android:windowSoftInputMode="adjustResize|adjustPan" />
         <activity android:name=".bus_home" />
         <activity android:name=".basic_bushome" />
         <activity android:name=".agency_dashboard" />

@@ -1,6 +1,6 @@
 package com.example.siddhant.loginui;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class list_item_layout extends AppCompatActivity {

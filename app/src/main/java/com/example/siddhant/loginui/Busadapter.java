@@ -1,14 +1,14 @@
 package com.example.siddhant.loginui;
 
+import android.content.Context;
 import android.graphics.Color;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -16,26 +16,62 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class Busadapter extends RecyclerView.Adapter<Busadapter.ViewHolder> implements Filterable {
+public class Busadapter extends RecyclerView.Adapter<Busadapter.DepoViewHolder> implements Filterable {
     private newdepo[]dDataset;
-    private OnItemClickListner mylistner;
     private List<newdepo> examplelistfull;
-    public interface OnItemClickListner{
-        void onButtonClick(int position);
+
+    private List<newdepo> oglist;
+    private  DepoAdapterListener listener;
+
+
+
+
+
+
+    public Busadapter(newdepo[] mydepoDataset,DepoAdapterListener listener){
+        this.dDataset=mydepoDataset;
+        this.listener=listener;
+        this.oglist=Arrays.asList(mydepoDataset);
+        examplelistfull= oglist;
     }
-    public void setOnClickListnerItem(OnItemClickListner listner){
-        this.mylistner=listner;
+
+
+
+    @Override
+    public void onBindViewHolder(DepoViewHolder holder, int position) {
+
+        final newdepo depo=examplelistfull.get(position);
+        holder.deponame.setText(depo.getDepoName());
+        holder.deponame.setTextColor(Color.BLACK);
+
+        holder.deponumber.setText(depo.getDepoNumber());
+        holder.deponumber.setTextColor(Color.BLACK);
+
+
+
     }
 
 
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public DepoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View view=inflater.inflate(R.layout.bus_list_depo_item,parent,false);
+        return new DepoViewHolder(view);
+    }
+
+
+
+
+
+    public class DepoViewHolder extends RecyclerView.ViewHolder {
         public TextView deponame;
         public TextView deponumber ;
         public Button callphone;
 
-        public ViewHolder(View  itemView , final OnItemClickListner listner) {
+        public DepoViewHolder(View  itemView ) {
 
             super(itemView);
             deponame=(TextView)itemView.findViewById(R.id.deponame);
@@ -43,52 +79,30 @@ public class Busadapter extends RecyclerView.Adapter<Busadapter.ViewHolder> impl
             callphone=(Button)itemView.findViewById(R.id.button17);
 
 
-
-            callphone.setOnClickListener(new View.OnClickListener(){
-
+            callphone.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(listner!=null)
-                    {
-                        int position=getAdapterPosition();
-                        if(position!=RecyclerView.NO_POSITION)
-                        {
-                            listner.onButtonClick(position);
-                        }
-                    }
+                    listener.callDepo(examplelistfull.get(getAdapterPosition()));
                 }
             });
 
+
+
+
+
         }
-    }
-    public Busadapter(newdepo[] mydepoDataset){
-        this.dDataset=mydepoDataset;
-        examplelistfull= Arrays.asList(mydepoDataset);
-    }
-
-    @Override
-    public Busadapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view=inflater.inflate(R.layout.bus_list_depo_item,parent,false);
-        return new ViewHolder(view , mylistner);
-    }
-
-    @Override
-    public void onBindViewHolder(Busadapter.ViewHolder holder, int position) {
-        holder.deponame.setText(dDataset[position].getDepoName());
-        holder.deponame.setTextColor(Color.BLACK);
-
-        holder.deponumber.setText(dDataset[position].getDepoNumber());
-        holder.deponumber.setTextColor(Color.BLACK);
-
 
 
     }
+
     @Override
     public int getItemCount() {
-        return dDataset.length;
+        return examplelistfull.size();
     }
+
+
+
+    //filter
 
     @Override
     public Filter getFilter() {
@@ -98,33 +112,60 @@ public class Busadapter extends RecyclerView.Adapter<Busadapter.ViewHolder> impl
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
             List<newdepo> filteredList = new ArrayList<>();
+
+
+
             if(charSequence ==null|| charSequence.length()==0){
-                filteredList.addAll(examplelistfull);
+                examplelistfull.addAll(oglist);
             }
             else {
-                String filterPattern = charSequence.toString().toLowerCase().trim();
-                for (newdepo item:examplelistfull){
-                    if(item.getDepoName().toLowerCase().contains(filterPattern)){
-                        filteredList.add(item);
 
+
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+
+
+
+                    for (newdepo item:oglist){
+                        if(item.getDepoName().toLowerCase().contains(filterPattern)){
+                            filteredList.add(item);
+
+                        }
                     }
-                }
+
+                    examplelistfull=filteredList;
+
+
+
             }
             FilterResults results = new FilterResults();
             results.values = filteredList;
             return  results;
         }
 
+
+
+        //publishing results
+
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-            dDataset=null;
-            List<newdepo> lst=new ArrayList<newdepo>();
-            lst.addAll((List)filterResults.values);
-            dDataset=new newdepo[lst.size()];
-            dDataset=lst.toArray(dDataset);
-            notifyDataSetChanged();
+          examplelistfull.addAll((List)filterResults.values);
+          notifyDataSetChanged();
         }
     };
+
+
+
+
+
+
+
+
+    public interface DepoAdapterListener{
+        void callDepo(newdepo depo);
+    }
+
+
+
 }
 
 

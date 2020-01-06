@@ -2,9 +2,9 @@ package com.example.siddhant.loginui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,9 +17,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.EventListener;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 public class agency_form extends AppCompatActivity {
 
@@ -35,7 +36,7 @@ public class agency_form extends AppCompatActivity {
     DatabaseReference db;
 
 
-    String[] vh= new String[9];
+    List<String> vh;
     CheckBox f1,f2,f3;
 
     @Override
@@ -61,7 +62,7 @@ public class agency_form extends AppCompatActivity {
         session=new SaveSharedPreference(getApplicationContext());
 
 
-
+        vh=new ArrayList<String>();
         //register as an agency
 
 
@@ -91,36 +92,37 @@ public class agency_form extends AppCompatActivity {
                     //checking the value for vehicles
                     if(f1.isChecked())
                     {
-                        vh[0]="Tempo";
+                        vh.add("Tempo");
+                    }
+                    else if(f2.isChecked())
+                    {
+                        vh.add("Bus");
                     }
                     else if(f3.isChecked())
                     {
-                        vh[0]="Bus";
-                    }
-                    else if(f3.isChecked())
-                    {
-                        vh[0]="Car";
+                        vh.add("Car");
                     }
                     else if(f1.isChecked() && f2.isChecked())
                     {
-                        vh[0]="Tempo";
-                        vh[1]="Bus";
+                        vh.add("Tempo");
+                        vh.add("Bus");
                     }
                     else if(f1.isChecked() && f3.isChecked())
                     {
-                        vh[0]="Tempo";
-                        vh[1]="Car";
+                        vh.add("Tempo");
+                        vh.add("Car");
                     }
                     else if(f2.isChecked() && f3.isChecked())
                     {
-                        vh[0]="Bus";
-                        vh[1]="Car";
+                        vh.add("Bus");
+                        vh.add("Car");
                     }
                     else if(f1.isChecked() && f3.isChecked() && f2.isChecked())
                     {
-                        vh[0]="Tempo";
-                        vh[1]="Bus";
-                        vh[2]="Car";
+
+                        vh.add("Tempo");
+                        vh.add("Bus");
+                        vh.add("Car");
                     }
 
 

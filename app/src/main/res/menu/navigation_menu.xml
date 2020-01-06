@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
+    <item android:id="@+id/nav_notification"
+        android:title="Notifications"
+        android:icon="@drawable/ic_notifications_24px">
+    </item>
+
+
+    <item android:id="@+id/nav_Upgrade"
+        android:title="Upgrade"
+        android:icon="@drawable/ic_publish_24px">
+    </item>
+
+
+
+    <item android:id="@+id/nav_Contact"
+        android:title="Contact_us"
+        android:icon="@drawable/call">
+    </item>
+
+
+
+
+    <item android:id="@+id/nav_Review"
+        android:title="Review"
+        android:icon="@drawable/ic_content_paste_24px">
+    </item>
+
+
+
+
+    <item android:id="@+id/nav_advertise"
+        android:title="Advertise with us"
+        android:icon="@drawable/ic_poll_24px">
+    </item>
+
+
+    <item android:id="@+id/nav_tc"
+        android:title="Terms and Conditions"
+        android:icon="@drawable/ic_assignment_24px">
+
+    </item>
+
+
+
+
+
+
+</menu>

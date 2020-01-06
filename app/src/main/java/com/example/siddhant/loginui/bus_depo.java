@@ -4,17 +4,15 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
-import android.view.Menu;
-import android.view.MenuInflater;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.SearchView;
+
 import android.view.inputmethod.EditorInfo;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,17 +21,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ThreadPoolExecutor;
 
-public class bus_depo extends AppCompatActivity {
+public class bus_depo extends AppCompatActivity implements Busadapter.DepoAdapterListener{
     DatabaseReference reff;
     List<newdepo> depot;
     private newdepo[] darr;
     private Busadapter madapter;
 
+    private Busadapter.DepoAdapterListener listener;
     private SearchView searchView;
 
     static int acount;
@@ -46,8 +42,35 @@ public class bus_depo extends AppCompatActivity {
         final Adapter[] bAdapter = new Adapter[1];
         final RecyclerView list = findViewById(R.id.busdepolist);
         list.setLayoutManager(new LinearLayoutManager(this));
+
+
+
+
+
+
+        final Busadapter.DepoAdapterListener ls=this;
+
+
+
+
+
+
         reff = FirebaseDatabase.getInstance().getReference().child("Depos");
         depot =new ArrayList<newdepo>();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         reff.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -67,14 +90,17 @@ public class bus_depo extends AppCompatActivity {
                 darr=new newdepo[depot.size()];
                 darr=depot.toArray(darr);
 
-                madapter=new Busadapter(darr);
+
+
+
+                madapter=new Busadapter(darr,ls);
+
                 list.setAdapter(madapter);
-                madapter.setOnClickListnerItem(new Busadapter.OnItemClickListner() {
-                    @Override
-                    public void onButtonClick(int position) {
-                        callDepo(darr[position]);
-                    }
-                });
+
+                madapter.notifyDataSetChanged();
+
+
+
 
 
 
@@ -106,7 +132,7 @@ public class bus_depo extends AppCompatActivity {
         });
     }
 
-    private void callDepo(newdepo depo) {
+    public void callDepo(newdepo depo) {
         String s = "tel:" + depo.getDepoNumber();
 
 
@@ -125,6 +151,8 @@ public class bus_depo extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+
 
 
 }

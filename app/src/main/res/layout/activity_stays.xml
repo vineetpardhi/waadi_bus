@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.siddhant.loginui.stays"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:text="+"
+            android:onClick="gotoManager"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/imageView18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            app:srcCompat="@drawable/stay" />
+
+        <Button
+            android:id="@+id/villas"
+            android:layout_width="133dp"
+            android:layout_height="37dp"
+            android:layout_gravity="center"
+
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="Villas" />
+
+        <Button
+            android:id="@+id/Hotels"
+            android:layout_width="133dp"
+            android:layout_height="37dp"
+            android:layout_gravity="center"
+
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Hotels" />
+
+        <Button
+            android:id="@+id/resort"
+            android:layout_width="133dp"
+            android:layout_height="37dp"
+            android:layout_gravity="center"
+
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Resort" />
+
+        <Button
+            android:id="@+id/homestay"
+            android:layout_width="133dp"
+            android:layout_height="37dp"
+            android:layout_gravity="center"
+
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Home Stays" />
+
+
+    </LinearLayout>
+</ScrollView>

@@ -8,10 +8,10 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +21,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -475,7 +474,7 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle(("Uploading..."));
             progressDialog.show();
-            StorageReference riversRef = storage.child("images/profile/"+name.getText().toString()+".jpg");
+            StorageReference riversRef = storage.child("images/profile/"+username.getText().toString()+".jpg");
 
             riversRef.putFile(filePath)
 
@@ -577,4 +576,5 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
             // Toast.makeText(getApplicationContext(),strings[i] , Toast.LENGTH_LONG).show();
         }
     }
+
 }

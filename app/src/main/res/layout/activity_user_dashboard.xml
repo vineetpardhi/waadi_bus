@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user_dashboard">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="351dp"
+        android:layout_height="578dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <RelativeLayout
+            android:id="@+id/dash_prof"
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/busroot">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="135dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/ic_account_circle_24px" />
+
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="160dp"
+            android:text="Username:">
+
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/usn"
+            android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="160dp"
+            android:text="TextView" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="210dp"
+            android:text="Name:">
+
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/Nm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="210dp"
+            android:text="TextView"
+            android:textColor="@color/black" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="260dp"
+            android:text="Email:">
+
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/eml"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="260dp"
+            android:text="TextView"
+            android:textColor="@color/black" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="310dp"
+            android:text="Address:">
+
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/addrs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="310dp"
+            android:text="TextView"
+            android:textColor="@color/black" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="360dp"
+            android:text="Phone No:">
+
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/phone_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="360dp"
+            android:text="TextView"
+            android:textColor="@color/black" />
+
+
+        <Button
+            android:id="@+id/edit_email"
+            android:layout_width="31dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="260dp"
+            android:background="@drawable/ic_edit_black_24dp"
+            android:onClick="ShowPopup1" />
+
+
+        <Button
+            android:id="@+id/edit_address"
+            android:layout_width="31dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="300dp"
+            android:background="@drawable/ic_edit_black_24dp"
+            android:onClick="ShowPopup2" />
+
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

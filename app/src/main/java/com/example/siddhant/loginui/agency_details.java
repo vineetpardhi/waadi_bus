@@ -9,20 +9,20 @@ public class agency_details {
     private String agency_name;
     private String agency_address;
     private String agency_number;
-    private String[] vh;
-    private List vlist;
+    private List<String> vh;
+
 
     public  agency_details()
     {
 
     }
-    public  agency_details(String agency_name,String agency_address,String agency_number,String[] vh,List vlist)
+    public  agency_details(String agency_name,String agency_address,String agency_number,List<String> vh)
     {
         this.agency_name=agency_name;
         this.agency_address=agency_address;
         this.agency_number=agency_number;
-        this.vh=vh;
-        this.vlist=vlist;
+        this.vh.addAll(vh);
+
 
     }
 
@@ -51,13 +51,13 @@ public class agency_details {
         this.agency_number = agency_number;
     }
 
-    public String[] getVh() {
+    public List<String> getVh() {
         return vh;
     }
 
-    public void setVh(String[] vh) {
+    public void setVh(List<String> vh) {
 
-        this.vlist=new ArrayList<String>(Arrays.asList(vh));
+        this.vh=vh;
 
 
     }

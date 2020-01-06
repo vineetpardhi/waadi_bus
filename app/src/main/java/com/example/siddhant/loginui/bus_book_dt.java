@@ -2,18 +2,16 @@ package com.example.siddhant.loginui;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Switch;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class bus_book_dt extends AppCompatActivity {
 

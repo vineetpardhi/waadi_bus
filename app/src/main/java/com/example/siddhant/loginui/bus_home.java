@@ -1,8 +1,10 @@
 package com.example.siddhant.loginui;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -24,7 +26,8 @@ public class bus_home extends AppCompatActivity {
 
     AutoCompleteTextView t1;
     AutoCompleteTextView t2;
-    Button sbtn;
+    Button sbtn,navbtn;
+
 
 
 
@@ -40,10 +43,6 @@ public class bus_home extends AppCompatActivity {
         sbtn=findViewById(R.id.go_bus);
         t1=findViewById(R.id.src);
         t2=findViewById(R.id.des);
-
-
-
-
 
 
 
@@ -112,7 +111,7 @@ public class bus_home extends AppCompatActivity {
                 }
                 else if(t2.getText().toString().isEmpty())
                 {
-                    t2.setError("Please Enter Source");
+                    t2.setError("Please Enter destination");
                 }
                 else if (t1.getText().toString().equals(t2.getText().toString()))
                 {
