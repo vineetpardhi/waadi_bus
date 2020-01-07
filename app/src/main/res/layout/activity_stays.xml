@@ -1,78 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerlayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.siddhant.loginui.stays"
+    android:theme="@style/AppTheme"
+    tools:context=".home_page"
     tools:layout_editor_absoluteX="8dp"
     tools:layout_editor_absoluteY="8dp">
 
-    <LinearLayout
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context="com.example.siddhant.loginui.stays"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/nav_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="25dp"
+
+                    android:background="@drawable/toggle"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/register_manager"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="25dp"
+                    android:text="+"
+
+                    android:textSize="15sp" />
+
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/imageView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                app:srcCompat="@drawable/stay" />
+
+            <Button
+                android:id="@+id/villas"
+                android:layout_width="133dp"
+                android:layout_height="37dp"
+                android:layout_gravity="center"
+
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:text="Villas" />
+
+            <Button
+                android:id="@+id/Hotels"
+                android:layout_width="133dp"
+                android:layout_height="37dp"
+                android:layout_gravity="center"
+
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="Hotels" />
+
+            <Button
+                android:id="@+id/resort"
+                android:layout_width="133dp"
+                android:layout_height="37dp"
+                android:layout_gravity="center"
+
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="Resort" />
+
+            <Button
+                android:id="@+id/homestay"
+                android:layout_width="133dp"
+                android:layout_height="37dp"
+                android:layout_gravity="center"
+
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="Home Stays" />
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation"
+        app:itemTextColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start">
+
+
+
+        <RelativeLayout
+            android:id="@+id/rl_profile"
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/busroot"/>
 
         <Button
-            android:id="@+id/register"
-            android:layout_width="30dp"
-            android:layout_height="40dp"
-            android:layout_gravity="right"
+            android:id="@+id/close_btn"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginLeft="230dp"
             android:layout_marginTop="25dp"
-            android:layout_marginRight="25dp"
-            android:text="+"
-            android:onClick="gotoManager"
-            android:textSize="15sp" />
+            android:background="@drawable/ic_close_24px" />
+
 
         <ImageView
-            android:id="@+id/imageView18"
-            android:layout_width="match_parent"
+            android:id="@+id/stay_usrp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            app:srcCompat="@drawable/stay" />
-
-        <Button
-            android:id="@+id/villas"
-            android:layout_width="133dp"
-            android:layout_height="37dp"
-            android:layout_gravity="center"
-
-            android:layout_marginTop="50dp"
-            android:gravity="center"
-            android:text="Villas" />
-
-        <Button
-            android:id="@+id/Hotels"
-            android:layout_width="133dp"
-            android:layout_height="37dp"
-            android:layout_gravity="center"
-
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="Hotels" />
-
-        <Button
-            android:id="@+id/resort"
-            android:layout_width="133dp"
-            android:layout_height="37dp"
-            android:layout_gravity="center"
-
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="Resort" />
-
-        <Button
-            android:id="@+id/homestay"
-            android:layout_width="133dp"
-            android:layout_height="37dp"
-            android:layout_gravity="center"
-
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="Home Stays" />
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/ic_account_circle_24px" />
 
 
-    </LinearLayout>
-</ScrollView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="160dp"
+            android:text="Notifications"
+            android:textSize="20dp" />
+
+
+        <TextView
+            android:id="@+id/usern"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="110dp"
+            android:text="Managername" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_notifications_24px"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="160dp"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:text="Upgrade"
+            android:layout_marginTop="200dp"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_publish_24px"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="200dp"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="240dp"
+            android:text="Contact Us"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:layout_width="17dp"
+            android:layout_height="22dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="240dp"
+            android:src="@drawable/call" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="280dp"
+            android:text="Review"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_content_paste_24px"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="280dp"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="320dp"
+            android:text="Advertise with us"
+            android:textSize="20dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_poll_24px"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="320dp"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="360dp"
+            android:text="Terms and Conditions"
+            android:textSize="20dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_assignment_24px"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="360dp"/>
+
+
+
+
+
+
+
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -87,6 +87,7 @@
         <activity android:name=".rikshaw1" />
         <activity android:name=".login" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".manager_dashboard"/>
         <activity android:name=".sign_up" />
         <activity android:name=".home_page" />
 

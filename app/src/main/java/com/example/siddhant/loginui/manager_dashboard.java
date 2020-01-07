@@ -55,9 +55,9 @@ public class manager_dashboard extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
 
-                       Map<String,String> ud=(HashMap<String,String>) dataSnapshot.getValue();
+                Map<String,String> ud=(HashMap<String,String>) dataSnapshot.getValue();
 
-                       hname=ud.get("manager_det");
+                hname=ud.get("manager_det");
 
 
 
@@ -75,11 +75,11 @@ public class manager_dashboard extends AppCompatActivity {
 
 
 
-                    usn.setText(td.get("managername"));
-                    hn.setText(td.get("hotelname"));
-                    address.setText(td.get("hoteladdress"));
-                    phoneno.setText(td.get("hotelphoneno"));
-                    nearby.setText(td.get("nearby"));
+                        usn.setText(td.get("managername"));
+                        hn.setText(td.get("hotelname"));
+                        address.setText(td.get("hoteladdress"));
+                        phoneno.setText(td.get("hotelphoneno"));
+                        nearby.setText(td.get("nearby"));
 
 
 
@@ -109,5 +109,5 @@ public class manager_dashboard extends AppCompatActivity {
     }
 
 
-    }
+}
 
