@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user_dashboard">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="351dp"
+        android:layout_height="578dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.496">
+
+
+        <RelativeLayout
+            android:id="@+id/dash_prof"
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/busroot">
+
+            <ImageView
+                android:layout_width="101dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="135dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/ic_account_circle_24px" />
+
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="160dp"
+            android:text="Manager name:">
+
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/usmn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="160dp"
+            android:text="TextView"
+            android:textColor="@color/black" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="190dp"
+            android:text="Hotel Name:">
+
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/hn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="190dp"
+            android:text="TextView"
+            android:textColor="@color/black" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="220dp"
+            android:text="Hotel Address">
+
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/hotel_addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="220dp"
+            android:text=""
+            android:textColor="@color/black" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="250dp"
+            android:text="Phone No">
+
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/nearby"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="280dp"
+            android:text="TextView"
+            android:textColor="@color/black" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="280dp"
+            android:text="Near BY">
+
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/phoneno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="250dp"
+            android:text="TextView" />
+
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
