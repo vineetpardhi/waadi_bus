@@ -145,7 +145,7 @@ public class house_stay_adapter extends RecyclerView.Adapter<house_stay_adapter.
 
                 for(stays_data item:stay_val)
                 {
-                    if(item.getLocation().contains(filterpattern))
+                    if(item.getLocation().toLowerCase().trim().contains(filterpattern))
                     {
                         filteredlist.add(item);
                     }
