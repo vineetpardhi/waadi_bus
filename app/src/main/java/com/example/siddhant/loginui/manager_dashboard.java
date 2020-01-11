@@ -46,7 +46,7 @@ public class manager_dashboard extends AppCompatActivity {
 
         usn = findViewById(R.id.usmn);
         hn = findViewById(R.id.hn);
-        phoneno = findViewById(R.id.phoneno);
+        phoneno = findViewById(R.id.hphoneno);
         address = findViewById(R.id.hotel_addr);
         nearby = findViewById(R.id.nearby);
 
@@ -67,6 +67,9 @@ public class manager_dashboard extends AppCompatActivity {
         db = FirebaseDatabase.getInstance().getReference("member").child(name);
 
 
+
+
+
         db.addValueEventListener(new ValueEventListener() {     //getting hotel name from member field
             @Override
             public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
@@ -77,10 +80,10 @@ public class manager_dashboard extends AppCompatActivity {
 
 
                 //hotel reference
-                href = FirebaseDatabase.getInstance().getReference("hotels");
+                href = FirebaseDatabase.getInstance().getReference("hotels").child(hname);
 
 
-                href.child(hname).addValueEventListener(new ValueEventListener() {
+                href.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -88,11 +91,10 @@ public class manager_dashboard extends AppCompatActivity {
                         Map<String, String> td = (HashMap<String, String>) dataSnapshot.getValue();
 
 
-                        usn.setText(td.get("managername"));
-                        hn.setText(td.get("hotelname"));
-                        address.setText(td.get("hoteladdress"));
-                        phoneno.setText(td.get("hotelphoneno"));
-                        nearby.setText(td.get("nearby"));
+                        usn.setText(name);
+                        hn.setText(td.get("Name"));
+                        address.setText(td.get("Location"));
+                        nearby.setText(td.get("Near"));
                         //editable popup for email
 
 
@@ -153,15 +155,15 @@ public class manager_dashboard extends AppCompatActivity {
                     ed_hname.setError("Please enter hotel  name");
                 } else {
 
-                    db.addValueEventListener(new ValueEventListener() {
+                    href.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
-                                db.child("hotel name").setValue(ed_hname.getText().toString());
+                                href.child("hotelname").setValue(ed_hname.getText().toString());
 
-                                ed_hname.setText(ed_hname.getText().toString());
+                                hn.setText(ed_hname.getText().toString());
 
-                                Toast.makeText(getApplicationContext(), "hotel name changed to:" + ed_hname.getText().toString(), Toast.LENGTH_SHORT).show();
+
 
                                 myDialog3.dismiss();
 
@@ -216,22 +218,22 @@ public class manager_dashboard extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String address = ed_haddress.getText().toString();
+                final String haddress = ed_haddress.getText().toString();
 
-                if (address.isEmpty())     //if email field is empty
+                if (haddress.isEmpty())     //if email field is empty
                 {
                     ed_haddress.setError("please enter address");
                 } else {
 
-                    db.addValueEventListener(new ValueEventListener() {
+                    href.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
-                                db.child("address").setValue(ed_haddress.getText().toString());
+                                href.child("hoteladdress").setValue(ed_haddress.getText().toString());
 
-                                ed_haddress.setText(ed_haddress.getText().toString());
+                                address.setText(ed_haddress.getText().toString());
 
-                                Toast.makeText(getApplicationContext(), "Address changed to:" + ed_haddress.getText().toString(), Toast.LENGTH_SHORT).show();
+
                                 mydialog4.dismiss();
                             }
                         }
@@ -286,15 +288,15 @@ public class manager_dashboard extends AppCompatActivity {
                     ed_hphone.setError("please enter phone no");
                 } else {
 
-                    db.addValueEventListener(new ValueEventListener() {
+                    href.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
-                                db.child("phone").setValue(ed_hphone.getText().toString());
+                                href.child("hotelphoneno").setValue(ed_hphone.getText().toString());
 
-                                ed_hphone.setText(ed_hphone.getText().toString());
+                                phoneno.setText(ed_hphone.getText().toString());
 
-                                Toast.makeText(getApplicationContext(), "Phone changed to:" + ed_hphone.getText().toString(), Toast.LENGTH_SHORT).show();
+
                                 mydialog5.dismiss();
                             }
                         }

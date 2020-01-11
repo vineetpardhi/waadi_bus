@@ -23,7 +23,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".bus_trips"></activity>
+        <activity android:name=".home_stays_details"></activity>
+        <activity
+            android:name=".house_stays"
+            android:windowSoftInputMode="adjustResize|adjustPan" />
+        <activity android:name=".bus_trips" />
         <activity android:name=".stays" />
         <activity android:name=".manager" />
         <activity android:name=".user_dashboard" />
@@ -87,7 +91,7 @@
         <activity android:name=".rikshaw1" />
         <activity android:name=".login" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".manager_dashboard"/>
+        <activity android:name=".manager_dashboard" />
         <activity android:name=".sign_up" />
         <activity android:name=".home_page" />
 

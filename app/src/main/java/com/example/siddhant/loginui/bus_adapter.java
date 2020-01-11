@@ -69,12 +69,6 @@ public class bus_adapter extends RecyclerView.Adapter<bus_adapter.BusviewHolder>
         holder.busnumberofstops.setText(bus.getNum_of_stops());
 
 
-
-
-
-
-
-
     }
 
     @Override
@@ -101,7 +95,7 @@ public class bus_adapter extends RecyclerView.Adapter<bus_adapter.BusviewHolder>
 
 
             if (charSequence==null || charSequence.length()==0) {
-                busfilteredlist=oglst;
+                busfilteredlist.addAll(oglst);
 
 
             } else {
@@ -132,10 +126,7 @@ public class bus_adapter extends RecyclerView.Adapter<bus_adapter.BusviewHolder>
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults results) {
 
-                busfilteredlist.addAll((List) results.values);
-
-
-
+            busfilteredlist.addAll((List) results.values);
             notifyDataSetChanged();
 
 
@@ -180,11 +171,6 @@ public class bus_adapter extends RecyclerView.Adapter<bus_adapter.BusviewHolder>
                     listener.OnBusSelected(busfilteredlist.get(getAdapterPosition()));
                 }
             });
-
-
-
-
-
 
         }
     }

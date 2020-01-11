@@ -14,9 +14,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,11 +37,14 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public class manager extends AppCompatActivity  implements View.OnClickListener{
+public class manager extends AppCompatActivity  implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     private static final int PICK_IMAGE_REQUEST = 234;
-    EditText managername, hotelname, hoteladdress, hotelphoneno, nearby, description, price, numberofrooms, roomscapacity;
+    EditText managername, hotelname, hoteladdress, hotelphoneno,add_amen, nearby,ratings, description, price, numberofrooms, roomscapacity;
     private StorageReference storage;
     hotel_reg Hotel;
     private ImageView image;
@@ -46,9 +53,16 @@ public class manager extends AppCompatActivity  implements View.OnClickListener{
     Button button;
     ProgressDialog pro;
     TextView hotelamenities;
-    Uri pdfuri;
-    Uri pdf;
+    private Uri img_uri;
+
+
+    List<String> ammenties;
+
+
+    AdapterView.OnItemSelectedListener listener;
     private DatabaseReference db;
+
+    private Spinner spinner;
 
     SaveSharedPreference session;
 
@@ -56,11 +70,54 @@ public class manager extends AppCompatActivity  implements View.OnClickListener{
 
     Dialog myDialog;
 
-
+    private Boolean isupload;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager);
+
+
+        isupload=false;
+
+        spinner=findViewById(R.id.stay_spinner);
+
+        spinner.setOnItemSelectedListener(this);
+
+
+        List<String> categories = new ArrayList<String>();
+        categories.add("Hotels");
+        categories.add("Villas");
+        categories.add("House Stays");
+        categories.add("Resorts");
+
+
+
+        // Creating adapter for spinner
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+
+        // Drop down layout style - list view with radio button
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        spinner.setAdapter(dataAdapter);
+
+
+
+        final CheckBox ac,wifi,pool,tv,park;
+
+        ac=findViewById(R.id.chkBox);
+        wifi=findViewById(R.id.chkBox2);
+        pool=findViewById(R.id.chkBox3);
+        tv=findViewById(R.id.chkBox4);
+        park=findViewById(R.id.chkBox5);
+
+
+
+
+
+
+
+
 
 
         managername = findViewById(R.id.managername);
@@ -72,7 +129,11 @@ public class manager extends AppCompatActivity  implements View.OnClickListener{
         price = findViewById(R.id.price);
         numberofrooms = findViewById(R.id.numberofrooms);
         roomscapacity = findViewById(R.id.roomscapacity);
+        ratings=findViewById(R.id.ratings);
         Hotel = new hotel_reg();
+
+        add_amen=findViewById(R.id.addition_amenitites);
+
 
         pro = new ProgressDialog(this);
         button = findViewById(R.id.register);
@@ -120,7 +181,11 @@ public class manager extends AppCompatActivity  implements View.OnClickListener{
                     hotelname.setError("name field can't be empty!");
                 } else if (hotelphoneno.length() != 10) {
                     hotelphoneno.setError("Invalid mobile no.");
-                } else if (nearby.getText().toString().trim().isEmpty()) {
+                }
+                else if(!(ac.isChecked() || tv.isChecked() || pool.isChecked() || wifi.isChecked() || park.isChecked())) {
+                    Toast.makeText(getApplicationContext(),"please select at least one tickbox",Toast.LENGTH_SHORT).show();
+                }
+                else if (nearby.getText().toString().trim().isEmpty()) {
                     nearby.setError("field can't be empty!");
                 } else if (price.length() >= 10) {
                     price.setError("price can't be empty!");
@@ -128,28 +193,88 @@ public class manager extends AppCompatActivity  implements View.OnClickListener{
                     description.setError("description field can't be empty!");
                 } else if (numberofrooms.getText().toString().trim().isEmpty()) {
                     numberofrooms.setError("field can't be empty!");
-                } else {
+                }
+                else if(ratings.getText().toString().isEmpty())
+                {
+                    ratings.setError("field can't be empty");
+                }
+                else if(!isupload)
+                {
+                    Toast.makeText(getApplicationContext(),"please upload photos",Toast.LENGTH_SHORT).show();
+                }
+                else{
+
+
+                    ammenties=new ArrayList<>();
+
+
+                    if(ac.isChecked())
+                    {
+                        ammenties.add("AC");
+
+                    }
+                    if(wifi.isChecked())
+                    {
+                        ammenties.add("wifi");
+
+
+                    }
+                    if(park.isChecked())
+                    {
+                        ammenties.add("parking");
+
+
+                    }
+                    if(pool.isChecked())
+                    {
+                        ammenties.add("Swimming pool");
+
+
+                    }
+                    if(tv.isChecked())
+                    {
+                        ammenties.add("TV");
+
+                    }
 
 
 
-                    db.addValueEventListener(new ValueEventListener() {
+
+
+
+                    reff.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if(dataSnapshot.child("name").getValue().equals(managername.getText().toString()))
-                            {
-
-                                Hotel.setManagername(managername.getText().toString());
-                                Hotel.setHotelname(hotelname.getText().toString().trim());
-                                Hotel.setHoteladdress(hoteladdress.getText().toString().trim());
-                                Hotel.setHotelphoneno(hotelphoneno.getText().toString().trim());
-                                Hotel.setNearby(nearby.getText().toString().trim());
-                                Hotel.setPrice(price.getText().toString().trim());
-                                Hotel.setRoomscapacity(roomscapacity.getText().toString().trim());
-                                Hotel.setDescription(description.getText().toString().trim());
-                                Hotel.setNumberofrooms(numberofrooms.getText().toString().trim());
 
 
-                                reff.child(hotelname.getText().toString()).setValue(Hotel);
+
+                                Map<String,String> sdet=new HashMap<>(); //creating a hashmap for stays
+
+
+                                sdet.put("Amenities",ammenties.toString());
+                                sdet.put("Description",description.getText().toString().trim());
+                                sdet.put("Location",hoteladdress.getText().toString().trim());
+                                sdet.put("Name",hotelname.getText().toString().trim());
+                                sdet.put("Near",nearby.getText().toString().trim());
+                                sdet.put("Phone No",hotelphoneno.getText().toString());
+                                sdet.put("Price_per_night",price.getText().toString().trim());
+                                sdet.put("Rooms Capacity",roomscapacity.getText().toString().trim());
+                                sdet.put("Number of rooms",numberofrooms.getText().toString().trim());
+                                sdet.put("Ratings",ratings.getText().toString());
+                                sdet.put("img_url",img_uri.toString());
+                                if(!add_amen.getText().toString().isEmpty())
+                                {
+
+                                    sdet.put("additional_ammenities",add_amen.getText().toString());
+
+                                }
+
+
+
+
+
+
+                                reff.child("Sheet1").child(hotelname.getText().toString()).setValue(sdet);
                                 Toast.makeText(manager.this, "Register Successful", Toast.LENGTH_LONG).show();
 
                                 db.child("manager_det").setValue(hotelname.getText().toString());
@@ -158,10 +283,10 @@ public class manager extends AppCompatActivity  implements View.OnClickListener{
                                 pro.show();
 
 
-                            }
-                            else {
-                                Toast.makeText(getApplicationContext(),"your name is wrong please register again",Toast.LENGTH_SHORT).show();
-                            }
+                                startActivity(new Intent(getApplicationContext(),home_page.class));
+
+
+
                         }
 
                         @Override
@@ -234,17 +359,28 @@ public class manager extends AppCompatActivity  implements View.OnClickListener{
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle(("Uploading..."));
             progressDialog.show();
-            StorageReference riversRef = storage.child("images/profile/" + hotelname.getText().toString()+ ".jpg");
+            final StorageReference riversRef = storage.child("images/profile/" + hotelname.getText().toString()+ ".jpg");
+
 
             riversRef.putFile(filePath)
 
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            progressDialog.dismiss();
+
                             Toast.makeText(getApplicationContext(), "File Uploaded", Toast.LENGTH_LONG).show();
+                            isupload=true;
+
+
                             // Get a URL to the uploaded content
 
+                            riversRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                img_uri=uri;
+                                }
+                            });
+                            progressDialog.dismiss();   
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -263,8 +399,6 @@ public class manager extends AppCompatActivity  implements View.OnClickListener{
                         }
                     })
             ;
-
-        } else {
 
         }
     }
@@ -294,6 +428,42 @@ public class manager extends AppCompatActivity  implements View.OnClickListener{
             uploadFile();
 
         }
+    }
+
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        // On selecting a spinner item
+        String item = parent.getItemAtPosition(position).toString();
+
+        // Showing selected spinner item
+        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+
+        if(item.equals("Hotels"))
+        {
+            reff = FirebaseDatabase.getInstance().getReference().child("hotels");        }
+        else if(item.equals("Villas"))
+        {
+
+            reff = FirebaseDatabase.getInstance().getReference().child("villas");
+
+        }
+        else if(item.equals("House Stays"))
+        {
+            reff = FirebaseDatabase.getInstance().getReference().child("house stays");
+
+        }
+        else {
+            reff = FirebaseDatabase.getInstance().getReference().child("resorts");
+
+
+        }
+
+
+    }
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // TODO Auto-generated method stub
     }
 
 

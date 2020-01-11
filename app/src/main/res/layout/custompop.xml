@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -46,14 +47,8 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="100dp"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ic_image_black_24dp" />
+            app:srcCompat="@drawable/ic_image_black_24dp"
+            tools:ignore="VectorDrawableCompat" />
 
-        <Button
-            android:id="@+id/imageView22"
-            android:layout_width="24dp"
-            android:layout_height="26dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="130dp"
-            android:background="@drawable/ic_delete_sweep_black_24dp" />
     </androidx.cardview.widget.CardView>
 </LinearLayout>

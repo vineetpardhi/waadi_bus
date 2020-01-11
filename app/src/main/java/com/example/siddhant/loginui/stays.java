@@ -156,4 +156,8 @@ public class stays extends AppCompatActivity {
     public void gotoManager(View view) {
         startActivity(new Intent(getApplicationContext(),manager.class));
     }
+
+    public void gtHomeStays(View view) {
+        startActivity(new Intent(getApplicationContext(),house_stays.class));
+    }
 }

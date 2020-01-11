@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="340dp"
+    android:layout_height="273dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="20dp">
+
+
+    <com.synnapps.carouselview.CarouselView
+        android:id="@+id/stay_carousel"
+        android:layout_width="match_parent"
+        android:layout_height="144dp"
+
+        app:fillColor="#FFFFFFFF"
+        app:pageColor="#00000000"
+        app:radius="6dp"
+        app:slideInterval="3000"
+        app:strokeColor="#FF777777"
+        app:strokeWidth="1dp" />
+
+    <TextView
+        android:id="@+id/stay_nm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="90dp"
+        android:text="TextView"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/stay_loc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="60dp"
+        android:text="TextView"
+        android:textColor="#000000" />
+
+
+    <TextView
+        android:id="@+id/stay_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="30dp"
+        android:text="TextView"
+        android:textColor="#000000" />
+
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="30dp"
+        android:text="₹" />
+
+
+    <RatingBar
+        android:id="@+id/ratingBar2"
+        style="@style/customRatingBar"
+        android:layout_width="121dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="-15dp"
+        android:layout_weight="1"
+        android:isIndicator="true"
+        android:max="5"
+        android:padding="20dip"
+        android:rating="4"
+        android:scaleX=".8"
+        android:scaleY=".8"
+        android:stepSize=".1"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp" />
+
+    <TextView
+        android:id="@+id/stay_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="TextView"
+        android:textColor="#000000" />
+
+</androidx.cardview.widget.CardView>

@@ -94,34 +94,12 @@ public class agency_form extends AppCompatActivity {
                     {
                         vh.add("Tempo");
                     }
-                    else if(f2.isChecked())
+                    if(f2.isChecked())
                     {
                         vh.add("Bus");
                     }
-                    else if(f3.isChecked())
+                    if(f3.isChecked())
                     {
-                        vh.add("Car");
-                    }
-                    else if(f1.isChecked() && f2.isChecked())
-                    {
-                        vh.add("Tempo");
-                        vh.add("Bus");
-                    }
-                    else if(f1.isChecked() && f3.isChecked())
-                    {
-                        vh.add("Tempo");
-                        vh.add("Car");
-                    }
-                    else if(f2.isChecked() && f3.isChecked())
-                    {
-                        vh.add("Bus");
-                        vh.add("Car");
-                    }
-                    else if(f1.isChecked() && f3.isChecked() && f2.isChecked())
-                    {
-
-                        vh.add("Tempo");
-                        vh.add("Bus");
                         vh.add("Car");
                     }
 
