@@ -70,7 +70,7 @@ public class sign_up extends AppCompatActivity {
         });
 
         otp = (EditText) findViewById(R.id.otp);
-        username = (EditText) findViewById(R.id.email);
+        username = (EditText) findViewById(R.id.username);
         mref=FirebaseDatabase.getInstance().getReference("member");
         password = (EditText) findViewById(R.id.Password);
         cpassword = (EditText) findViewById(R.id.cpassword);

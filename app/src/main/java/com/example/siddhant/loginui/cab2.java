@@ -41,20 +41,20 @@ import java.util.Calendar;
 import java.util.List;
 
 
-public class rikshaw2 extends AppCompatActivity implements View.OnClickListener {
+public class cab2 extends AppCompatActivity implements View.OnClickListener {
     private static final int PICK_IMAGE_REQUEST = 234;
     private ImageView image;
     private Button uploadphoto;
     private Button chooesphoto;
-    private Button chooesfile;
-    private Button uploadidproof;
-    private Button chooesfile1;
-    private Button rtoverification;
+    private Button chooesfile3;
+    private Button uploadidproof1;
+    private Button chooesfile4;
+    private Button rtoverification1;
     private Uri filePath;
-    private LinearLayout layout;
-    private CheckBox chkBox;
-    private  LinearLayout layout1;
-    private CheckBox chkBox1;
+    private LinearLayout layout2;
+    private CheckBox chkBox3;
+    private  LinearLayout layout3;
+    private CheckBox chkBox4;
     Uri pdfuri;
     Uri pdf;
     ProgressDialog progressDialog;
@@ -64,13 +64,13 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
     Calendar c;
     DatePickerDialog dp;
 
-    EditText name,name1, address, mobileno, rtobranch, rtoaddress, dateofregistration,working,username,password,cpassword,email,rno1,location;
-    Button button,addInput,btn;
-    TextView notification;
-    TextView notification1;
+    EditText name1,name, address1, mobileno1, rtobranch1, rtoaddress1, dateofregistration1,working1,username1,password1,cpassword1,email1,agencyname1,cno;
+    Button register1,addInput,btn;
+    TextView notification4;
+    TextView notification5;
 
 
-    Driver drive;
+    cab Cab;
     DatabaseReference reff;
     FirebaseDatabase database;
     ProgressDialog pro;
@@ -81,110 +81,108 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rikshaw2);
+        setContentView(R.layout.activity_cab2);
         storage = FirebaseStorage.getInstance().getReference();
-        image = (ImageView) findViewById(R.id.image);
-        uploadphoto = (Button) findViewById(R.id.photo);
-        chooesphoto = (Button) findViewById(R.id.photo1);
-        chooesfile = (Button) findViewById(R.id.chooesfile);
-        uploadidproof=(Button)findViewById(R.id.uploadidproof);
-        notification=findViewById(R.id.notification);
-        chooesfile1 = (Button) findViewById(R.id.chooesfile1);
-        rtoverification=(Button)findViewById(R.id.rtoverification);
-        notification1=findViewById(R.id.notification1);
-        location=findViewById(R.id.location);
-        name = (EditText) findViewById(R.id.username);
-        address = (EditText) findViewById(R.id.address);
-        mobileno = (EditText) findViewById(R.id.mobileno);
-        rno1=findViewById(R.id.rno1);
-        rtobranch = (EditText) findViewById(R.id.rtobranch);
-        rtoaddress = (EditText) findViewById(R.id.rtoaddress);
-        dateofregistration = (EditText) findViewById(R.id.dateofregistration);
-        button = (Button) findViewById(R.id.Register);
+        image = (ImageView) findViewById(R.id.image1);
+        uploadphoto = (Button) findViewById(R.id.photo7);
+        chooesphoto = (Button) findViewById(R.id.photo6);
+        chooesfile3 = (Button) findViewById(R.id.chooesfile3);
+        uploadidproof1=(Button)findViewById(R.id.uploadidproof1);
+        notification4=findViewById(R.id.notification4);
+        chooesfile4 = (Button) findViewById(R.id.chooesfile4);
+        cno=findViewById(R.id.cno);
+        rtoverification1=(Button)findViewById(R.id.rtoverification1);
+        notification5=findViewById(R.id.notification5);
+        agencyname1=findViewById(R.id.agencyname1);
+        name1= (EditText) findViewById(R.id.name1);
+        address1 = (EditText) findViewById(R.id.address1);
+        mobileno1 = (EditText) findViewById(R.id.mobileno1);
+        rtobranch1 = (EditText) findViewById(R.id.rtobranch1);
+        rtoaddress1 = (EditText) findViewById(R.id.rtoaddress1);
+        dateofregistration1 = (EditText) findViewById(R.id.dateofregistration1);
+        register1 = (Button) findViewById(R.id.register1);
         addInput = (Button) findViewById(R.id.add);
-        btn=(Button)findViewById(R.id.dpbtn);
-        username=(EditText)findViewById(R.id.username);
-        password=(EditText)findViewById(R.id.password);
-        cpassword=(EditText)findViewById(R.id.cpassword);
-        email=(EditText)findViewById(R.id.email);
+        btn=(Button)findViewById(R.id.dpbtn1);
+        username1=(EditText)findViewById(R.id.username1);
+        password1=(EditText)findViewById(R.id.password1);
+        cpassword1=(EditText)findViewById(R.id.cpassword1);
+        email1=(EditText)findViewById(R.id.email1);
         resultView=findViewById(R.id.image);
-        name1 = (EditText) findViewById(R.id.agencyname);
+        name1 = (EditText) findViewById(R.id.name1);
 
-        working= (EditText) findViewById(R.id.working);
-        chkBox = (CheckBox) findViewById(R.id.chkBox);
-        layout = (LinearLayout) findViewById(R.id.layout);
-        chkBox1 = (CheckBox) findViewById(R.id.chkBox1);
-        layout1 = (LinearLayout) findViewById(R.id.layout1);
+        working1= (EditText) findViewById(R.id.working1);
+        chkBox3 = (CheckBox) findViewById(R.id.chkBox3);
+        layout2= (LinearLayout) findViewById(R.id.layout2);
+        chkBox4 = (CheckBox) findViewById(R.id.chkBox4);
+        layout3 = (LinearLayout) findViewById(R.id.layout3);
+
+
         pro = new ProgressDialog(this);
-        drive = new Driver();
-        reff = FirebaseDatabase.getInstance().getReference().child("member");
+        Cab = new cab();
+        reff = FirebaseDatabase.getInstance().getReference().child("cab");
 
         uploadphoto.setOnClickListener(this);
         chooesphoto.setOnClickListener(this);
 
-        chkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        chkBox3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 // TODO Auto-generated method stub
                 if(isChecked)
                 {
-                    layout.setVisibility(View.VISIBLE);
-
-                    chkBox.setText("Owner");
+                    layout2.setVisibility(View.VISIBLE);
+                    chkBox3.setText("Agency");
                 }
                 else
                 {
-                    layout.setVisibility(View.GONE);
-
-                    }
-                    chkBox.setText("Owner");
+                    layout2.setVisibility(View.GONE);
+                    chkBox3.setText("Agency");
                 }
-
+            }
 
 
         });
-        chkBox1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        chkBox4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 // TODO Auto-generated method stub
                 if(isChecked)
                 {
-                    layout1.setVisibility(View.VISIBLE);
-
-                    chkBox1.setText("Agency");
+                    layout3.setVisibility(View.VISIBLE);
+                    chkBox4.setText("Owner");
                 }
                 else
                 {
-                    layout1.setVisibility(View.GONE);
-                    chkBox1.setText("Agency");
+                    layout3.setVisibility(View.GONE);
+                    chkBox4.setText("Owner");
                 }
             }
 
 
         });
 
-        chooesfile1.setOnClickListener(new View.OnClickListener() {
+        chooesfile4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (ContextCompat.checkSelfPermission(rikshaw2.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                if (ContextCompat.checkSelfPermission(cab2.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                     selectPdf();
                 } else
-                    ActivityCompat.requestPermissions(rikshaw2.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 10);
+                    ActivityCompat.requestPermissions(cab2.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 10);
             }
         });
 
-        rtoverification.setOnClickListener(new View.OnClickListener() {
+        rtoverification1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(pdf!=null){
                     uploadFile(pdf);
                 }else {
-                    Toast.makeText(rikshaw2.this, "Select a file" ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(cab2.this, "Select a file" ,Toast.LENGTH_SHORT).show();
                 }
             }
             private void uploadFile(Uri pdf) {
-                progressDialog = new ProgressDialog(rikshaw2.this);
+                progressDialog = new ProgressDialog(cab2.this);
                 progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                 progressDialog.setTitle("uploadingFile..");
                 progressDialog.setProgress(0);
@@ -207,9 +205,9 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
-                                                    Toast.makeText(rikshaw2.this, "file successfully Uploaded", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(cab2.this, "file successfully Uploaded", Toast.LENGTH_SHORT).show();
                                                 } else {
-                                                    Toast.makeText(rikshaw2.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(cab2.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         });
@@ -224,7 +222,7 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
                             public void onFailure(@NonNull Exception exception) {
                                 // Handle unsuccessful uploads
                                 // ...
-                                Toast.makeText(rikshaw2.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(cab2.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -236,28 +234,28 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
             }
         });
 
-        chooesfile.setOnClickListener(new View.OnClickListener() {
+        chooesfile3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(ContextCompat.checkSelfPermission(rikshaw2.this, Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED)
+                if(ContextCompat.checkSelfPermission(cab2.this, Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED)
                 {
                     selectPdf1();
                 }
                 else
-                    ActivityCompat.requestPermissions(rikshaw2.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},9);
+                    ActivityCompat.requestPermissions(cab2.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},9);
             }
 
 
         });
 
 
-        uploadidproof.setOnClickListener(new View.OnClickListener() {
+        uploadidproof1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(pdfuri!=null){
                     uploadFile(pdfuri);
                 }else {
-                    Toast.makeText(rikshaw2.this, "Select a file" ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(cab2.this, "Select a file" ,Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -266,7 +264,7 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
 
 
             private void uploadFile(Uri pdfuri) {
-                progressDialog = new ProgressDialog(rikshaw2.this);
+                progressDialog = new ProgressDialog(cab2.this);
                 progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                 progressDialog.setTitle("uploadingFile..");
                 progressDialog.setProgress(0);
@@ -289,9 +287,9 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
-                                                    Toast.makeText(rikshaw2.this, "file successfully Uploaded", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(cab2.this, "file successfully Uploaded", Toast.LENGTH_SHORT).show();
                                                 } else {
-                                                    Toast.makeText(rikshaw2.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(cab2.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         });
@@ -306,7 +304,7 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
                             public void onFailure(@NonNull Exception exception) {
                                 // Handle unsuccessful uploads
                                 // ...
-                                Toast.makeText(rikshaw2.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(cab2.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -330,11 +328,11 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
 
 
 
-                dp=new DatePickerDialog(rikshaw2.this, new DatePickerDialog.OnDateSetListener() {
+                dp=new DatePickerDialog(cab2.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker , int myear, int ymonth, int dayOfMonth) {
 
-                        dateofregistration.setText(dayOfMonth+"/"+ (ymonth+1) + "/"+myear);
+                        dateofregistration1.setText(dayOfMonth+"/"+ (ymonth+1) + "/"+myear);
 
                     }
                 },day,month,year);
@@ -342,97 +340,98 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
             }
         } );
 
-        button.setOnClickListener(new View.OnClickListener() {
+        register1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                String user = name.getText().toString();
-                if (address.getText().toString().trim().isEmpty()) {
-                    address.setError("email field can't be empty!");
+                String user = name1.getText().toString();
+                if (address1.getText().toString().trim().isEmpty()) {
+                    address1.setError("address field can't be empty!");
+
+                }else if
+                (working1.getText().toString().trim().isEmpty()) {
+                        working1.setError("Working area field can't be empty!");
                 }
-                 else if (mobileno.length()!=10) {
-                    mobileno.setError("Invalid mobile no.");
+                else if (mobileno1.length()!=10){
+                    mobileno1.setError("Invalid mobile no.");
 
                 }
-                else if(!password.getText().toString().equals(cpassword.getText().toString()))
+                else if(!password1.getText().toString().equals(cpassword1.getText().toString()))
                 {
-                    cpassword.setError("Password do not match");
+                    cpassword1.setError("Password do not match");
                 }
-                else if(!isEmailValid(email.getText().toString().trim()))
+                else if(!isEmailValid(email1.getText().toString().trim()))
                 {
-                    email.setError("Not a valid email");
+                    email1.setError("Not a valid email");
                 }
-                else if(name.getText().toString().length()>=15)
+                else if(agencyname1.getText().toString().length()>=15)
                 {
-                    name.setError("Should be less than 15");
+                   agencyname1.setError("Should be less than 15");
                 }
-                else if(username.getText().toString().length()<3) {
-                    username.setError("Username should be greater than 3");
+                else if(username1.getText().toString().length()<=3) {
+                    username1.setError("username should be greater than 3");
                 }
-                else if (location.getText().toString().trim().isEmpty()){
-                    location.setError("field can't be empty");
-                }
-                else if(password.getText().toString().length()<6)
+                else if(password1.getText().toString().length()<6)
                 {
-                    password.setError("Password should be greater than 5");
-
-                }
-                else if(chkBox.isChecked()&&rno1.getText().toString().trim().isEmpty())
+                    password1.setError("Password should be greater than 5");
+                }else if(chkBox4.isChecked()&&cno.getText().toString().trim().isEmpty())
                 {
-                    rno1.setError("Cannot be empty");
-                }else if(chkBox.isChecked()&& rtobranch.getText().toString().trim().isEmpty()){
-                    rtobranch.setError("cannot be empty");
-                }else if(chkBox.isChecked()&& address.getText().toString().trim().isEmpty()){
-                    address.setError("cannot be empty");
-                }else if(chkBox.isChecked()&&dateofregistration.getText().toString().trim().isEmpty()){
-                    dateofregistration.setError("cannot be empty");
-                }else if(chkBox1.isChecked()&&name1.getText().toString().trim().isEmpty()){
-                    name1.setError("Cannot be empty");
+                    cno.setError("Cannot be empty");
+                }else if(chkBox4.isChecked()&& rtobranch1.getText().toString().trim().isEmpty()){
+                    rtobranch1.setError("cannot be empty");
+                }else if(chkBox4.isChecked()&& address1.getText().toString().trim().isEmpty()){
+                    address1.setError("cannot be empty");
+                }else if(chkBox4.isChecked()&&dateofregistration1.getText().toString().trim().isEmpty()){
+                    dateofregistration1.setError("cannot be empty");
+                }else if(chkBox3.isChecked()&&agencyname1.getText().toString().trim().isEmpty()){
+                    agencyname1.setError("Cannot be empty");
                 }
-                else if(!chkBox.isChecked()&&!chkBox1.isChecked()){
+                else if(!chkBox3.isChecked()&&!chkBox4.isChecked()){
                     Toast.makeText(getApplicationContext(),"please check atleast one ckeckbox",Toast.LENGTH_SHORT).show();
                 }
-                else {
+                else{
                     pro.setMessage("Registering...");
                     pro.show();
-                    drive.setUsername(username.getText().toString().trim());
-                    drive.setPassword(password.getText().toString());
-                    drive.setEmail(email.getText().toString().trim());
-                    drive.setWorking(working.getText().toString());
-                    drive.setName(name.getText().toString().trim());
-                    drive.setName(name1.getText().toString().trim());
-                    drive.setAddress(address.getText().toString().trim());
-                    drive.setMobileno(mobileno.getText().toString().trim());
-                    drive.setRno(rno1.getText().toString().trim());
-                    drive.setRtobranch(rtobranch.getText().toString().trim());
-                    drive.setRtoaddress(rtoaddress.getText().toString().trim());
-                    drive.setDateofregistration(dateofregistration.getText().toString().trim());
-                    drive.setplaces(strings);
-                    drive.setLocation(location.getText().toString().trim());
-                    drive.setRole("Driver");
-                    Toast.makeText(getApplicationContext(), "Here i am", Toast.LENGTH_SHORT).show();
-                    reff.child(username.getText().toString().trim()).setValue(drive);
-                    Toast.makeText(rikshaw2.this, "Successfully Signed in", Toast.LENGTH_LONG).show();
+                    Cab.setUsername(username1.getText().toString().trim());
+                    Cab.setName(name1.getText().toString().trim());
+                    Cab.setAgencyname(agencyname1.getText().toString().trim());
+                    Cab.setPassword(password1.getText().toString());
+                    Cab.setEmail(email1.getText().toString().trim());
+                    Cab.setWorking(working1.getText().toString());
+                    Cab.setName(agencyname1.getText().toString().trim());
+                    Cab.setAddress(address1.getText().toString().trim());
+                    Cab.setMobileno(mobileno1.getText().toString().trim());
+                    Cab.setCabno(cno.getText().toString().trim());
+                    Cab.setRtobranch(rtobranch1.getText().toString().trim());
+                    Cab.setRtoaddress(rtoaddress1.getText().toString().trim());
+                    Cab.setDateofregistration(dateofregistration1.getText().toString().trim());
+                    Cab.setplaces(strings);
+
+                    reff.child(name1.getText().toString().trim()).setValue(Cab);
+                    Toast.makeText(cab2.this, "Successfully Signed in", Toast.LENGTH_LONG).show();
 
                 }
             }
         });
+
+
     }
+
 
     public void onCheckboxClicked(View view) {
 
         switch(view.getId()) {
 
-            case R.id.chkBox:
+            case R.id.chkBox3:
 
-                chkBox1.setChecked(false);
+                chkBox4.setChecked(false);
 
 
                 break;
 
-            case R.id.chkBox1:
+            case R.id.chkBox4:
 
-                chkBox.setChecked(false);
+                chkBox3.setChecked(false);
 
 
                 break;
@@ -459,7 +458,7 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
             selectPdf();
 
         }else{
-            Toast.makeText(rikshaw2.this,"please provide permission..",Toast.LENGTH_SHORT).show();
+            Toast.makeText(cab2.this,"please provide permission..",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -474,8 +473,8 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
 
 
 
-    boolean isEmailValid(CharSequence email) {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    boolean isEmailValid(CharSequence email1) {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email1).matches();
     }
     private void showFileChooser() {
         Intent intent = new Intent();
@@ -493,7 +492,7 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle(("Uploading..."));
             progressDialog.show();
-            StorageReference riversRef = storage.child("images/profile/"+username.getText().toString()+".jpg");
+            StorageReference riversRef = storage.child("images/profile/"+username1.getText().toString()+".jpg");
 
             riversRef.putFile(filePath)
 
@@ -539,15 +538,15 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
         }
         if(requestCode==86 && resultCode==RESULT_OK  && data!=null) {
             pdfuri = data.getData();
-            notification.setText("A File is selected:" + data.getData().getLastPathSegment());
+            notification4.setText("A File is selected:" + data.getData().getLastPathSegment());
         }else{
-            Toast.makeText(rikshaw2.this,"please select a file",Toast.LENGTH_SHORT).show();
+            Toast.makeText(cab2.this,"please select a file",Toast.LENGTH_SHORT).show();
         }
         if(requestCode==87 && resultCode==RESULT_OK  && data!=null) {
             pdf = data.getData();
-            notification1.setText("A File is selected:" + data.getData().getLastPathSegment());
+            notification5.setText("A File is selected:" + data.getData().getLastPathSegment());
         }else{
-            Toast.makeText(rikshaw2.this,"please select a file",Toast.LENGTH_SHORT).show();
+            Toast.makeText(cab2.this,"please select a file",Toast.LENGTH_SHORT).show();
         }
         try {
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),filePath);
@@ -576,7 +575,7 @@ public class rikshaw2 extends AppCompatActivity implements View.OnClickListener 
     public void addone(View view) {
         LinearLayout ly=findViewById(R.id.LinearLayout);
 
-        ed=new EditText(rikshaw2.this);
+        ed=new EditText(cab2.this);
         allEds.add(ed);
         ly.addView(ed);
         this.count=this.count+1;

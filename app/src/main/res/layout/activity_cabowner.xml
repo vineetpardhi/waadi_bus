@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.siddhant.loginui.rikshaowner"
+    tools:context="com.example.siddhant.loginui.cabowner"
     tools:layout_editor_absoluteX="8dp"
     tools:layout_editor_absoluteY="8dp">
 
@@ -47,7 +47,7 @@
                 android:layout_marginEnd="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ownername"
+                    android:id="@+id/ownername2"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -76,12 +76,12 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
 
-                app:errorEnabled="true"
+
                 android:layout_marginStart="60dp"
                 android:layout_marginEnd="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/agencyname"
+                    android:id="@+id/agencyname2"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -109,13 +109,13 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
-                app:counterEnabled="true"
+
                 app:errorEnabled="true"
                 android:layout_marginStart="60dp"
                 android:layout_marginEnd="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/agencyaddress"
+                    android:id="@+id/agencyaddress2"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -145,16 +145,16 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
 
-                app:errorEnabled="true"
+
                 android:layout_marginStart="60dp"
                 android:layout_marginEnd="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/rno2"
+                    android:id="@+id/cno2"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
-                    android:hint="rikshaw No"
+                    android:hint="Cab No"
 
                     android:paddingLeft="0dp"
                     android:paddingRight="20dp"
@@ -186,7 +186,7 @@
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password1"
+                    android:id="@+id/password2"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -222,7 +222,7 @@
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/cpassword1"
+                    android:id="@+id/cpassword2"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -235,8 +235,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
         </FrameLayout>
-
-
         <FrameLayout
 
             android:layout_width="match_parent"
@@ -253,12 +251,12 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
 
-                app:errorEnabled="true"
+
                 android:layout_marginStart="60dp"
                 android:layout_marginEnd="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/agencyphone"
+                    android:id="@+id/agencyphone1"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -298,7 +296,7 @@
                 android:text="Register Certificate" />
 
             <Button
-                android:id="@+id/chooes1"
+                android:id="@+id/chooes2"
                 android:layout_width="100dp"
                 android:layout_height="37dp"
                 android:layout_gravity="right"
@@ -308,7 +306,7 @@
                 android:text="chooes file" />
 
             <TextView
-                android:id="@+id/notification"
+                android:id="@+id/notification7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -319,7 +317,7 @@
 
 
             <Button
-                android:id="@+id/upload1"
+                android:id="@+id/upload2"
                 android:layout_width="100dp"
                 android:layout_height="37dp"
                 android:layout_gravity="right"
@@ -343,7 +341,7 @@
                 android:text="Licence Certificate" />
 
             <Button
-                android:id="@+id/chooes"
+                android:id="@+id/chooes3"
                 android:layout_width="100dp"
                 android:layout_height="37dp"
                 android:layout_gravity="right"
@@ -352,7 +350,7 @@
                 android:text="chooes file" />
 
             <TextView
-                android:id="@+id/notification1"
+                android:id="@+id/notification8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -363,7 +361,7 @@
 
 
             <Button
-                android:id="@+id/upload"
+                android:id="@+id/upload3"
                 android:layout_width="100dp"
                 android:layout_height="37dp"
                 android:layout_gravity="right"
@@ -407,7 +405,7 @@
                     android:layout_marginBottom="16dp">
 
                     <TextView
-                        android:id="@+id/noofvehicle"
+                        android:id="@+id/noofvehicle3"
                         android:layout_width="193dp"
                         android:layout_height="45dp"
                         android:layout_gravity="left"
@@ -437,17 +435,17 @@
             </RelativeLayout>
         </FrameLayout>
 
-<LinearLayout
-    android:id="@+id/main_l"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-</LinearLayout>
 
 
+        <LinearLayout
+            android:id="@+id/LinearLayout"
+            android:layout_width="285dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:orientation="vertical" />
 
         <Button
-            android:id="@+id/Register"
+            android:id="@+id/Register1"
             android:layout_width="140dp"
             android:layout_height="40dp"
             android:layout_gravity="center"

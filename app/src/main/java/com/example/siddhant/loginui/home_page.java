@@ -228,4 +228,12 @@ public class home_page extends AppCompatActivity {
     public void gotoStays(View view) {
         startActivity(new Intent(getApplicationContext(),stays.class));
     }
+
+    public void gotoTrain(View view) {
+        startActivity(new Intent(getApplicationContext(),train.class));
+    }
+
+    public void gotoCabs(View view) {
+        startActivity(new Intent(getApplicationContext(),cab1.class));
+    }
 }

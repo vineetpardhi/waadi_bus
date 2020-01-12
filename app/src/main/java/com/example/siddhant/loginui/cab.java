@@ -2,54 +2,54 @@ package com.example.siddhant.loginui;
 
 import java.util.List;
 
-public class Driver {
-    private String name;
-    private String address;
-    private String mobileno;
-    private String rtobranch;
-    private String rtoaddress;
-    private String dateofregistration;
+public class cab {
+    private String name1;
+    private String address1;
+    private String mobileno1;
+    private String rtobranch1;
+    private String rtoaddress1;
+    private String dateofregistration1;
     private List<String> places;
-    private String username;
-    private String location;
-    private String rno1;
+    private String username1;
+    private String agencyname1;
+    private String cno;
 
-    public String getLocation(){return location;}
+    public String getCabno(){return cno;}
 
-    public void setLocation(String location){this.location = location;}
+    public void setCabno(String cno){this.cno = cno;}
 
-   public String getRno(){return rno1;}
+    public String getAgencyname (){return agencyname1;}
 
-   public void setRno(String rno){ this.rno1=rno;}
+    public void setAgencyname(String agencyname1){this.agencyname1 = agencyname1; }
 
     public String getEmail() {
-        return email;
+        return email1;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email1 = email;
     }
 
-    private String email;
+    private String email1;
 
     public String getUsername() {
-        return username;
+        return username1;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username1 = username;
     }
 
     public String getPassword() {
-        return password;
+        return password1;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password1 = password;
     }
 
-    private String password;
-    private String working;
+    private String password1;
+    private String working1;
 
     public List<String> getplaces() {
         return places;
@@ -63,11 +63,11 @@ public class Driver {
 
 
     public String getWorking() {
-        return working;
+        return working1;
     }
 
     public void setWorking(String working) {
-        this.working = working;
+        this.working1 = working;
     }
 
 
@@ -80,51 +80,51 @@ public class Driver {
     }
 
     public String getName() {
-        return name;
+        return name1;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name1 = name;
     }
 
     public String getAddress() {
-        return address;
+        return address1;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        this.address1 = address;
     }
 
     public String getMobileno() {
-        return mobileno;
+        return mobileno1;
     }
 
     public void setMobileno(String mobileno) {
-        this.mobileno = mobileno;
+        this.mobileno1 = mobileno;
     }
 
     public String getRtobranch() {
-        return rtobranch;
+        return rtobranch1;
     }
 
     public void setRtobranch(String rtobranch) {
-        this.rtobranch = rtobranch;
+        this.rtobranch1 = rtobranch;
     }
 
     public String getRtoaddress() {
-        return rtoaddress;
+        return rtoaddress1;
     }
 
     public void setRtoaddress(String rtoaddress) {
-        this.rtoaddress = rtoaddress;
+        this.rtoaddress1 = rtoaddress;
     }
 
     public String getDateofregistration() {
-        return dateofregistration;
+        return dateofregistration1;
     }
 
     public void setDateofregistration(String dateofregistration) {
-        this.dateofregistration = dateofregistration;
+        this.dateofregistration1 = dateofregistration;
     }
 
 

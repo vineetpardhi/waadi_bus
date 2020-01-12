@@ -1,9 +1,9 @@
 package com.example.siddhant.loginui;
 
-public class newdriver {
+public class cabdriver {
     private String name;
-    private String mobileno;
-    private String rno;
+    private String phone1;
+    private String cno1;
 
     public Double getLatitude() {
         return latitude;
@@ -33,19 +33,20 @@ public class newdriver {
     }
 
     public String getMobileno() {
-        return mobileno;
+        return phone1;
     }
 
-    public void setMobileno(String mobileno) {
-        this.mobileno = mobileno;
+    public void setMobileno(String phone1) {
+        this.phone1 = phone1;
     }
 
-    public String getRno() {
-        return rno;
+    public String getCabno() {
+
+        return cno1;
     }
 
-    public void setRno(String rno) {
-        this.rno = rno;
+    public void setCabno(String cno1) {
+        this.cno1 = cno1;
     }
 
 

@@ -9,12 +9,9 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -40,24 +37,22 @@ import com.google.firebase.storage.UploadTask;
 import java.util.ArrayList;
 import java.util.List;
 
-public class rikshaowner extends AppCompatActivity {
-    private CardView cv,cv1,cv2,cv3;
-    private RecyclerView rc;
+public class cabowner extends AppCompatActivity {
     private LinearLayout ly;
-    private Button chooes1;
-    private Button upload1;
-    private Button chooes;
-    private Button upload;
+    private Button chooes2;
+    private Button upload2;
+    private Button chooes3;
+    private Button upload3;
     Uri pdfuri;
     Uri pdf;
     ProgressDialog progressDialog;
     private StorageReference storage;
 
     Button button, addinput, btn;
-    agency Agency;
+    cab_agency Agency;
     DatabaseReference reff;
-    TextView notification;
-    TextView notification1;
+    TextView notification7;
+    TextView notification8;
 
 
     FirebaseDatabase database;
@@ -65,55 +60,54 @@ public class rikshaowner extends AppCompatActivity {
     List<String> strings;
     static int count=0;
     static List<EditText> allEds=new ArrayList<EditText>();
-    static List<CardView> allCard=new ArrayList<CardView>();
-    EditText ed ,ed1, ed2,ownername, agencyaddress, agencyphone,agencyname,  rtobranch, rtoaddress, dateofregistration,password1,cpassword1,rno2;
+    EditText ed ,ed1, ed2,ownername2, agencyaddress2, agencyphone1,agencyname2,  rtobranch, rtoaddress, dateofregistration,password2,cno2,cpassword2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rikshaowner);
+        setContentView(R.layout.activity_cabowner);
         storage = FirebaseStorage.getInstance().getReference();
         addinput = (Button) findViewById(R.id.adding);
-        ownername = (EditText) findViewById(R.id.ownername);
-        agencyname = (EditText) findViewById(R.id.agencyname);
-        agencyaddress = (EditText) findViewById(R.id.agencyaddress);
-        agencyphone = (EditText) findViewById(R.id.agencyphone);
-        password1 = findViewById(R.id.password1);
-        cpassword1 = findViewById(R.id.cpassword1);
-        rno2 = findViewById(R.id.rno2);
-        chooes1 = findViewById(R.id.chooes1);
-        upload1 = findViewById(R.id.upload1);
-        chooes = findViewById(R.id.chooes);
-        upload = findViewById(R.id.upload);
-        button = findViewById(R.id.Register);
-        notification=findViewById(R.id.notification);
-        notification1=findViewById(R.id.notification1);
-        Agency=new agency();
+        ownername2 = (EditText) findViewById(R.id.ownername2);
+        agencyname2 = (EditText) findViewById(R.id.agencyname2);
+        agencyaddress2 = (EditText) findViewById(R.id.agencyaddress2);
+        agencyphone1 = (EditText) findViewById(R.id.agencyphone1);
+        password2=findViewById(R.id.password2);
+        cno2=findViewById(R.id.cno2);
+        cpassword2 = findViewById(R.id.cpassword2);
+        chooes2 = findViewById(R.id.chooes2);
+        upload2 = findViewById(R.id.upload2);
+        chooes3 = findViewById(R.id.chooes3);
+        upload3 = findViewById(R.id.upload3);
+        button = findViewById(R.id.Register1);
+        notification7=findViewById(R.id.notification7);
+        notification8=findViewById(R.id.notification8);
+        Agency=new cab_agency();
         pro = new ProgressDialog(this);
-        reff = FirebaseDatabase.getInstance().getReference().child("agency");
+        reff = FirebaseDatabase.getInstance().getReference().child("cab_agency");
 
-        chooes1.setOnClickListener(new View.OnClickListener() {
+        chooes2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(ContextCompat.checkSelfPermission(rikshaowner.this, Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED)
+                if(ContextCompat.checkSelfPermission(cabowner.this, Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED)
                 {
                     selectPdf1();
                 }
                 else
-                    ActivityCompat.requestPermissions(rikshaowner.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},9);
+                    ActivityCompat.requestPermissions(cabowner.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},9);
             }
 
 
         });
 
 
-        upload1.setOnClickListener(new View.OnClickListener() {
+        upload2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(pdfuri!=null){
                     uploadFile(pdfuri);
                 }else {
-                    Toast.makeText(rikshaowner.this, "Select a file" ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(cabowner.this, "Select a file" ,Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -122,7 +116,7 @@ public class rikshaowner extends AppCompatActivity {
 
 
             private void uploadFile(Uri pdfuri) {
-                progressDialog = new ProgressDialog(rikshaowner.this);
+                progressDialog = new ProgressDialog(cabowner.this);
                 progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                 progressDialog.setTitle("uploadingFile..");
                 progressDialog.setProgress(0);
@@ -145,9 +139,9 @@ public class rikshaowner extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
-                                                    Toast.makeText(rikshaowner.this, "file successfully Uploaded", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(cabowner.this, "file successfully Uploaded", Toast.LENGTH_SHORT).show();
                                                 } else {
-                                                    Toast.makeText(rikshaowner.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(cabowner.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         });
@@ -162,7 +156,7 @@ public class rikshaowner extends AppCompatActivity {
                             public void onFailure(@NonNull Exception exception) {
                                 // Handle unsuccessful uploads
                                 // ...
-                                Toast.makeText(rikshaowner.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(cabowner.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -174,28 +168,28 @@ public class rikshaowner extends AppCompatActivity {
             }
         });
 
-        chooes.setOnClickListener(new View.OnClickListener() {
+        chooes3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (ContextCompat.checkSelfPermission(rikshaowner.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                if (ContextCompat.checkSelfPermission(cabowner.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                     selectPdf();
                 } else
-                    ActivityCompat.requestPermissions(rikshaowner.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 10);
+                    ActivityCompat.requestPermissions(cabowner.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 10);
             }
         });
 
-        upload.setOnClickListener(new View.OnClickListener() {
+        upload3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(pdf!=null){
                     uploadFile(pdf);
                 }else {
-                    Toast.makeText(rikshaowner.this, "Select a file" ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(cabowner.this, "Select a file" ,Toast.LENGTH_SHORT).show();
                 }
             }
             private void uploadFile(Uri pdf) {
-                progressDialog = new ProgressDialog(rikshaowner.this);
+                progressDialog = new ProgressDialog(cabowner.this);
                 progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                 progressDialog.setTitle("uploadingFile..");
                 progressDialog.setProgress(0);
@@ -218,9 +212,9 @@ public class rikshaowner extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
-                                                    Toast.makeText(rikshaowner.this, "file successfully Uploaded", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(cabowner.this, "file successfully Uploaded", Toast.LENGTH_SHORT).show();
                                                 } else {
-                                                    Toast.makeText(rikshaowner.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(cabowner.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         });
@@ -235,7 +229,7 @@ public class rikshaowner extends AppCompatActivity {
                             public void onFailure(@NonNull Exception exception) {
                                 // Handle unsuccessful uploads
                                 // ...
-                                Toast.makeText(rikshaowner.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(cabowner.this, "file not successfully Uploaded", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -252,39 +246,37 @@ public class rikshaowner extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                String user = ownername.getText().toString();
+                String user = ownername2.getText().toString();
 
-                if (agencyaddress.getText().toString().trim().isEmpty()) {
-                    agencyaddress.setError("address field can't be empty!");
-                } else if (ownername.getText().toString().trim().isEmpty()) {
-                    ownername.setError("name field can't be empty!");
+                if (agencyaddress2.getText().toString().trim().isEmpty()) {
+                    agencyaddress2.setError("address field can't be empty!");
+                } else if (ownername2.getText().toString().trim().isEmpty()) {
+                    ownername2.setError("name field can't be empty!");
                 }
-                else if (agencyname.getText().toString().trim().isEmpty()) {
-                    agencyname.setError("name field can't be empty!");
-                }else if (agencyphone.length()!=10){
-                    agencyphone.setError("Invalid mobile no.");
-                }else if(!password1.getText().toString().equals(cpassword1.getText().toString()))
+                else if (agencyname2.getText().toString().trim().isEmpty()) {
+                    agencyname2.setError("name field can't be empty!");
+                }else if (agencyphone1.length()!=10){
+                    agencyphone1.setError("Invalid mobile no.");
+                }else if(password2.getText().toString().length()<6)
                 {
-                    cpassword1.setError("Password do not match");
-                }else if(rno2.getText().toString().trim().isEmpty()){
-                    rno2.setError("Cannot be empty");
+                    password2.setError("Password should be greater than 5");
+
                 }
 
                 else{
                     //pro.setMessage("Registering...");
                     //  pro.show();
 
-                    Agency.setOwnername(agencyname.getText().toString());
-                    Agency.setAgencyname(agencyname.getText().toString().trim());
-                    Agency.setAgencyaddress(agencyaddress.getText().toString().trim());
-                    Agency.setAgencyphone(agencyphone.getText().toString().trim());
-                    Agency.setPassword(password1.getText().toString());
-                    Agency.setRno(rno2.getText().toString().trim());
+                    Agency.setOwnername(agencyname2.getText().toString());
+                    Agency.setAgencyname(agencyname2.getText().toString().trim());
+                    Agency.setAgencyaddress(agencyaddress2.getText().toString().trim());
+                    Agency.setAgencyphone(agencyphone1.getText().toString().trim());
+                    Agency.setPassword(password2.getText().toString().trim());
+                    Agency.setCabno(cno2.getText().toString().trim());
 
 
-
-                    reff.child(ownername.getText().toString().trim()).setValue(Agency);
-                    Toast.makeText(rikshaowner.this, ownername.getText().toString().trim(), Toast.LENGTH_LONG).show();
+                    reff.child(ownername2.getText().toString().trim()).setValue(Agency);
+                    Toast.makeText(cabowner.this,"Successfully Register", Toast.LENGTH_LONG).show();
 
                 }
             }
@@ -308,7 +300,7 @@ public class rikshaowner extends AppCompatActivity {
 
 
         }else{
-            Toast.makeText(rikshaowner.this,"please provide permission..",Toast.LENGTH_SHORT).show();
+            Toast.makeText(cabowner.this,"please provide permission..",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -324,15 +316,15 @@ public class rikshaowner extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 86 && resultCode == RESULT_OK && data != null) {
             pdfuri = data.getData();
-            notification.setText("A File is selected:" + data.getData().getLastPathSegment());
+            notification7.setText("A File is selected:" + data.getData().getLastPathSegment());
         } else {
-            Toast.makeText(rikshaowner.this, "please select a file", Toast.LENGTH_SHORT).show();
+            Toast.makeText(cabowner.this, "please select a file", Toast.LENGTH_SHORT).show();
         }
         if (requestCode == 87 && resultCode == RESULT_OK && data != null) {
             pdf = data.getData();
-            notification1.setText("A File is selected:" + data.getData().getLastPathSegment());
+            notification8.setText("A File is selected:" + data.getData().getLastPathSegment());
         } else {
-            Toast.makeText(rikshaowner.this, "please select a file", Toast.LENGTH_SHORT).show();
+            Toast.makeText(cabowner.this, "please select a file", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -340,62 +332,17 @@ public class rikshaowner extends AppCompatActivity {
 
 
     public void add (View view){
+        LinearLayout ly = findViewById(R.id.LinearLayout);
 
-       LinearLayout lv = findViewById(R.id.main_l);
-
-        LinearLayout l1,l2,l3;
-        ed = new EditText(rikshaowner.this);
-        ed1 = new EditText(rikshaowner.this);
-        ed2 = new EditText(rikshaowner.this);
-
-        l1 = new LinearLayout(rikshaowner.this);
-        l2 = new LinearLayout(rikshaowner.this);
-        l3 = new LinearLayout(rikshaowner.this);
-
-
-        cv1 = new CardView(rikshaowner.this);
-        cv2 = new CardView(rikshaowner.this);
-        cv3 = new CardView(rikshaowner.this);
-
-
-
-
-
-
-
-
-
-
-
-
-        cv1.addView(ed);
-        cv1.addView(ed1);
-        cv1.addView(ed2);
-
-
-
-
-
-
-
-
-
-
-
-        allCard.add(cv1);
-
-        lv.addView(cv1);
-
-
-
-
+        ed = new EditText(cabowner.this);
+        ed1 = new EditText(cabowner.this);
+        ed2 = new EditText(cabowner.this);
         allEds.add(ed);
         allEds.add(ed1);
         allEds.add(ed2);
-
-
-
-
+        ly.addView(ed);
+        ly.addView(ed1);
+        ly.addView(ed2);
         this.count = this.count + 1;
 
         ed.setId(this.count);
@@ -409,8 +356,6 @@ public class rikshaowner extends AppCompatActivity {
 
         ed2.setId(this.count);
         ed2.setHint("RTO Address " + this.count);
-
-
 
 
     }

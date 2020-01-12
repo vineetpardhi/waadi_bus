@@ -105,7 +105,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/train"
-                android:onClick="gotoTrail" />
+                android:onClick="gotoTrain" />
 
             <Button
                 android:id="@+id/button6"
@@ -131,7 +131,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="15dp"
-
+                android:onClick="gotoCabs"
                 android:background="@drawable/cab" />
 
 

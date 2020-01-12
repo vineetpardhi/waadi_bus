@@ -1,38 +1,38 @@
 package com.example.siddhant.loginui;
 import java.util.List;
 
-public class agency {
-    private String ownername;
-    private String agencyname;
-    private String password1;
-    private String rno2;
+public class cab_agency {
+    private String ownername2;
+    private String agencyname2;
+    private String password2;
+    private String cno2;
 
     public String getPassword() {
-        return password1;
+        return password2;
     }
 
     public void setPassword(String password) {
-        this.password1 = password;
+        this.password2 = password;
     }
 
-    public String getRno(){return rno2;}
-    public void setRno(String rno2){this.rno2=rno2;}
+    public String getCabno(){return cno2;}
+    public void setCabno(String cno2){this.cno2=cno2;}
 
 
     public String getOwnername() {
-        return ownername;
+        return ownername2;
     }
 
     public void setOwnername(String ownername) {
-        this.ownername = ownername;
+        this.ownername2 = ownername;
     }
 
     public String getAgencyname() {
-        return agencyname;
+        return agencyname2;
     }
 
     public void setAgencyname(String agencyname) {
-        this.agencyname = agencyname;
+        this.agencyname2 = agencyname;
     }
 
     public String getAgencyaddress() {
