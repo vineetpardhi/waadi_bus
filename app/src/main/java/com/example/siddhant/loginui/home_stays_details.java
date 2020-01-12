@@ -67,7 +67,7 @@ public class home_stays_details extends AppCompatActivity {
         home_st_price=findViewById(R.id.home_st_price);
         home_stay_rating=findViewById(R.id.home_stay_rating);
         home_st_comments=findViewById(R.id.home_st_comments);
-        //home_st_cordinate=findViewById(R.id.home_stay_cordinate);
+        home_st_cordinate=findViewById(R.id.home_st_cordinates);
         home_St_numofrm=findViewById(R.id.home_st_numofr);
 
 
@@ -147,14 +147,14 @@ public class home_stays_details extends AppCompatActivity {
         });
 
 
-//        home_st_cordinate.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?q=loc:%f,%f", Float.parseFloat(coordinates[0]),Float.parseFloat(coordinates[1]));
-//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-//                startActivity(intent);
-//            }
-//        });
+        home_st_cordinate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?q=loc:%f,%f", Float.parseFloat(coordinates[0]),Float.parseFloat(coordinates[1]));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                startActivity(intent);
+            }
+        });
 
 
 

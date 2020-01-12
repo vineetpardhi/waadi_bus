@@ -26,7 +26,7 @@ public class hire_bus extends AppCompatActivity {
     private SaveSharedPreference session;
 
 
-    RecyclerView triplist;
+
 
 
     private DatabaseReference db;
@@ -41,10 +41,6 @@ public class hire_bus extends AppCompatActivity {
         String name=user.get(SaveSharedPreference.KEY_NAME);
 
 
-
-
-        triplist=findViewById(R.id.tlist);
-        triplist.setLayoutManager(new LinearLayoutManager(this));
 
 
         db= FirebaseDatabase.getInstance().getReference("member").child(name);
@@ -76,7 +72,6 @@ public class hire_bus extends AppCompatActivity {
 
 
 
-                triplist.setAdapter(new trip_adapter(qarr));
 
 
 

@@ -41,9 +41,9 @@
             android:id="@+id/textView39"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginTop="80dp"
-            android:text="Price per Night:" />
+            android:text="Price per Night: 0" />
 
         <TextView
             android:id="@+id/textView43"
@@ -61,7 +61,7 @@
             android:layout_marginTop="80dp" />
 
         <RatingBar
-            android:id="@+id/ratingBar"
+            android:id="@+id/get_filter_rate"
             android:layout_width="250dp"
             android:layout_height="42dp"
             android:layout_marginLeft="75dp"
@@ -69,11 +69,20 @@
 
         <Button
             android:id="@+id/sb_filter"
-            android:layout_width="106dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/buttonstyle"
-            android:text="Submit" />
+            android:text="Apply Filters" />
+
+        <TextView
+            android:id="@+id/tooltext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="80dp"
+            android:layout_marginRight="20dp"
+            android:text="0"/>
 
     </androidx.cardview.widget.CardView>
 </LinearLayout>
