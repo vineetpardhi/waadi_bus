@@ -64,7 +64,7 @@ public class CabAdapter extends RecyclerView.Adapter<CabAdapter.MyViewHolder> {
     public CabAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
                                                        int viewType) {
         LayoutInflater inflater=LayoutInflater.from(parent.getContext());
-        View view=inflater.inflate(R.layout.activity_list_item_layout,parent,false);
+        View view=inflater.inflate(R.layout.activity_list_item1_layout,parent,false);
         return new MyViewHolder(view,mlistner);
     }
 

@@ -37,13 +37,14 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.sql.Wrapper;
 import java.util.ArrayList;
 import java.util.List;
 
 public class rikshaowner extends AppCompatActivity {
-    private CardView cv,cv1,cv2,cv3;
+    private CardView cv;
     private RecyclerView rc;
-    private LinearLayout ly;
+    private LinearLayout lv;
     private Button chooes1;
     private Button upload1;
     private Button chooes;
@@ -341,57 +342,38 @@ public class rikshaowner extends AppCompatActivity {
 
     public void add (View view){
 
+
        LinearLayout lv = findViewById(R.id.main_l);
 
-        LinearLayout l1,l2,l3;
+
+
+
+
         ed = new EditText(rikshaowner.this);
         ed1 = new EditText(rikshaowner.this);
         ed2 = new EditText(rikshaowner.this);
 
-        l1 = new LinearLayout(rikshaowner.this);
-        l2 = new LinearLayout(rikshaowner.this);
-        l3 = new LinearLayout(rikshaowner.this);
+cv= new CardView(rikshaowner.this);
+
+//        lv.addView(ed);
+//        lv.addView(ed1);
+//        lv.addView(ed2);
+
+//        cv.addView(ed);
+        cv.addView(ed1);
+//        cv.addView(ed2);
+
+        lv.addView(cv);
+        lv.addView(cv);
 
 
-        cv1 = new CardView(rikshaowner.this);
-        cv2 = new CardView(rikshaowner.this);
-        cv3 = new CardView(rikshaowner.this);
+//        allEds.add(ed);
+//        allEds.add(ed1);
+//        allEds.add(ed2);
 
-
-
-
-
-
-
-
-
-
-
-
-        cv1.addView(ed);
-        cv1.addView(ed1);
-        cv1.addView(ed2);
-
-
-
-
-
-
-
-
-
-
-
-        allCard.add(cv1);
-
-        lv.addView(cv1);
-
-
-
-
-        allEds.add(ed);
-        allEds.add(ed1);
-        allEds.add(ed2);
+        this.count=this.count +1;
+        cv.setId(this.count);
+        cv.setMinimumHeight(200);
 
 
 

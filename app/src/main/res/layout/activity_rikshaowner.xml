@@ -437,13 +437,20 @@
             </RelativeLayout>
         </FrameLayout>
 
-<LinearLayout
-    android:id="@+id/main_l"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
 
-</LinearLayout>
-
+        <LinearLayout
+            android:id="@+id/main_l"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:orientation="vertical"
+            android:layout_gravity="center"></LinearLayout>
+<!--<androidx.cardview.widget.CardView-->
+<!--    android:id="@+id/cardview"-->
+<!--    android:layout_width="285dp"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:layout_marginLeft="50dp"-->
+<!--    android:orientation="vertical"/>-->
 
 
         <Button
