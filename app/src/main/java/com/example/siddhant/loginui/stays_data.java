@@ -25,7 +25,10 @@ public class stays_data {
     private List<String> img_url;
     private String number_of_rooms;
 
+    public stays_data()
+    {
 
+    }
 
     public stays_data(String ammenties, String comments, String coordinates, String description, String location, String name, String near, String price_per_night, String ratings,List<String> img_url, String number_of_rooms) {
         Ammenties = ammenties;

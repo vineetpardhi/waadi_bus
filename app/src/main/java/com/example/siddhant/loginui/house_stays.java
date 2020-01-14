@@ -27,6 +27,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 
@@ -46,10 +47,13 @@ public class house_stays extends AppCompatActivity implements house_stay_adapter
     AdapterView.OnItemSelectedListener itemlistener;
     private house_stay_adapter hadapter;
 
+    private List<stays_data> filter_list;
     private Dialog myDialog;
 
     private house_stay_adapter.HomeStaysListener listener;
 
+
+    private stays_data sob;
     private DatabaseReference stref;
 
 
@@ -65,6 +69,8 @@ public class house_stays extends AppCompatActivity implements house_stay_adapter
         myDialog=new Dialog(this);
         itemlistener=this;
 
+
+        sob=new stays_data();
 
         listener=this;
 
@@ -262,17 +268,27 @@ public class house_stays extends AppCompatActivity implements house_stay_adapter
     {
 
 
-        if(ppn=="0" || Integer.parseInt(ppn)<2000)
+        if(ppn==null)
         {
+            ppn="0";
+            Toast.makeText(getApplicationContext(),"the price cannot be zero",Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(getApplicationContext(),"please enter price greater than 2000",Toast.LENGTH_SHORT).show();
+
+
         }
-        else if(filter_rating<3)
+        else if(ppn=="0" || Integer.parseInt(ppn)<2000)
+        {
+            Toast.makeText(getApplicationContext(),"please enter price greater than 2000",Toast.LENGTH_SHORT).show();
+
+        }
+        else if(filter_rating<3 || filter_rating==null)
         {
             Toast.makeText(getApplicationContext(),"hotel available only of 3 stars",Toast.LENGTH_SHORT).show();
         }
         else{
 
+
+            filter_list=null;
 
 
 
@@ -281,56 +297,42 @@ public class house_stays extends AppCompatActivity implements house_stay_adapter
             ftref=FirebaseDatabase.getInstance().getReference("stays").child("Sheet1");
 
 
-            ftref.addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+
+
+            ftref.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    List<stays_data> filter_list=null;
-                    Map sd=null;
+
                     for(DataSnapshot list:dataSnapshot.getChildren())
                     {
 
-                        if(list.child("Near").getValue().toString().toLowerCase().equals(near.toLowerCase()) )
+                        if(list.child("Near").getValue().toString().toLowerCase().equals(near.toLowerCase()) && Integer.parseInt(list.child("Price_per_night").getValue().toString()) <=Integer.parseInt(ppn))
                         {
-                            sd=(HashMap) list.getValue();
 
 
+                            filter_list=new ArrayList<>();
+                            sob=list.getValue(stays_data.class);
+
+                            if(sob!=null)
+                            {
+                                filter_list.add(sob);
+
+
+                            }
+                            else {
+                                Toast.makeText(getApplicationContext(),"haga",Toast.LENGTH_SHORT).show();
+                            }
 
 
 
                         }
-                        if(list.child("Ratings").getValue().toString().equals(String.valueOf(filter_rating)))
-                        {
-                            sd=(HashMap) list.getValue();
 
-
-                        }
-                        if(Integer.parseInt(list.child("Price_per_night").getValue().toString()) <=Integer.parseInt(ppn))
-                        {
-                            sd=(HashMap) list.getValue();
-
-
-                        }
 
                     }
 
-
-
-
-                    if(sd!=null)
-                    {
-
-                        Toast.makeText(getApplicationContext(),sd.toString(),Toast.LENGTH_SHORT).show();
-//
-//                        stay_val.addAll(filter_list);
-//                        houselist.setAdapter(hadapter);
-
-                    }
-                    else
-                    {
-                        Toast.makeText(getApplicationContext(),"sorry no results",Toast.LENGTH_SHORT).show();
-                    }
-
-
+                    filter_results(filter_list);
 
 
 
@@ -346,6 +348,7 @@ public class house_stays extends AppCompatActivity implements house_stay_adapter
 
 
 
+
         }
 
 
@@ -354,6 +357,23 @@ public class house_stays extends AppCompatActivity implements house_stay_adapter
 
     }
 
+
+    public void filter_results(List<stays_data> fill)
+    {
+        if(fill!=null)
+        {
+
+
+            Toast.makeText(getApplicationContext(),fill.toString(),Toast.LENGTH_SHORT).show();
+//                        stay_val.addAll(filter_list);
+//                        houselist.setAdapter(hadapter);
+
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"sorry no results",Toast.LENGTH_SHORT).show();
+        }
+    }
 
 
 }
